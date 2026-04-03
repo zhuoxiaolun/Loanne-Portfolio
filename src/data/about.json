@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "About Me",
+    "name": "Loanne",
+    "bio": "我是一位以使用者研究為核心的 UX 設計師，熱衷於將複雜的系統轉化為直覺、有溫度的產品體驗。擅長跨職能協作，從 0 到 1 建立設計流程，並以數據驅動設計決策。",
+    "bioExtra": "目前關注 AI 輔助設計工具的發展，探索如何讓設計師在新工具浪潮中保持創造力的主導權。"
+  },
+  "professionalTools": {
+    "title": "設計工具",
+    "items": [
+      { "name": "Figma", "level": "Expert" },
+      { "name": "Adobe Illustrator", "level": "Proficient" },
+      { "name": "Protopie", "level": "Proficient" },
+      { "name": "Miro", "level": "Proficient" },
+      { "name": "Framer", "level": "Familiar" }
+    ]
+  },
+  "aiTools": {
+    "title": "AI 工具",
+    "items": [
+      { "name": "Claude", "level": "Expert" },
+      { "name": "Midjourney", "level": "Proficient" },
+      { "name": "ChatGPT", "level": "Proficient" },
+      { "name": "Cursor", "level": "Familiar" }
+    ]
+  },
+  "experience": {
+    "title": "工作經歷",
+    "items": [
+      {
+        "role": "Senior UX Designer",
+        "company": "某某科技公司",
+        "period": "2023 — Present",
+        "description": "負責核心產品 UX 策略與設計系統建置，帶領小型設計團隊推動以研究為基礎的設計文化。"
+      },
+      {
+        "role": "UX Designer",
+        "company": "某某數位設計公司",
+        "period": "2021 — 2023",
+        "description": "主導多個電商與 SaaS 平台的 UX 設計，完整參與從研究、概念到上線的完整設計流程。"
+      },
+      {
+        "role": "UI/UX Designer",
+        "company": "某某新創公司",
+        "period": "2019 — 2021",
+        "description": "負責行動應用程式的 UI 設計及使用者測試，累積豐富的 0 to 1 產品設計經驗。"
+      }
+    ]
+  },
+  "awards": {
+    "title": "獎項與認可",
+    "items": [
+      {
+        "title": "Red Dot Design Award",
+        "year": "2024",
+        "description": "Communication Design — Digital Category"
+      },
+      {
+        "title": "iF Design Award",
+        "year": "2023",
+        "description": "User Experience Design"
+      },
+      {
+        "title": "Golden Pin Design Award",
+        "year": "2022",
+        "description": "互動設計類 — 入選"
+      }
+    ]
+  }
+}

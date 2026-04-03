@@ -1,0 +1,360 @@
+{
+  "categories": [
+    {
+      "id": "commercial",
+      "label": "Commercial Project",
+      "description": "商業合作專案"
+    },
+    {
+      "id": "graphic",
+      "label": "Graphic & Digital Design",
+      "description": "視覺與數位設計"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-01",
+      "category": "commercial",
+      "title": "電商結帳流程重設計",
+      "titleEn": "E-Commerce Checkout Redesign",
+      "year": "2024",
+      "type": "UX Research / Product Design",
+      "role": "Lead UX Designer",
+      "client": "某某電商平台",
+      "coverImage": "/images/project-01-cover.jpg",
+      "tags": ["UX Research", "Product Design", "E-Commerce"],
+      "summary": "透過使用者研究發現結帳流程中的主要痛點，重新設計三步驟結帳體驗，成功將轉換率提升 28%。",
+      "featured": true,
+      "detail": {
+        "metadata": {
+          "year": "2024",
+          "projectType": "UX Research / Product Design",
+          "role": "Lead UX Designer",
+          "client": "某某電商平台",
+          "duration": "4 個月"
+        },
+        "overview": "本專案針對電商平台的結帳流程進行全面重設計。原有流程造成大量用戶在最後步驟放棄購物，通過深度的使用者研究與可用性測試，我們找到了核心問題並設計出更直覺的解決方案。",
+        "background": "客戶發現其結帳放棄率高達 68%，遠高於業界平均的 45%。初步數據分析顯示問題集中在表單填寫階段，但需要更深入的質性研究來了解背後原因。",
+        "process": [
+          {
+            "phase": "使用者研究",
+            "description": "進行 12 場深度訪談，並對 200+ 位用戶進行問卷調查。同時分析熱圖與錄屏數據，找出具體的操作卡點。"
+          },
+          {
+            "phase": "問題定義",
+            "description": "整合研究發現，確認三大核心痛點：表單欄位過多、錯誤提示不清楚、缺乏進度感。"
+          },
+          {
+            "phase": "設計迭代",
+            "description": "從 20+ 個概念草圖中篩選出 3 個方向進行 A/B 測試，最終選定「漸進式填寫」方案。"
+          },
+          {
+            "phase": "可用性測試",
+            "description": "招募 8 位目標用戶進行原型測試，收集質性回饋並進行兩輪迭代優化。"
+          }
+        ],
+        "contentBlocks": [
+          {
+            "type": "text",
+            "heading": "核心痛點 / 問題陳述",
+            "body": "用戶在填寫個人資料時感到疲乏，主要原因是系統要求一次性填入大量資訊，且未提供儲存草稿的功能。此外，錯誤提示僅在送出後才顯示，讓用戶必須重新尋找錯誤欄位，造成強烈的挫敗感。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-01-research.jpg",
+            "alt": "使用者研究訪談過程與 Affinity Map",
+            "caption": "透過 Affinity Mapping 整理 12 場訪談的洞察"
+          },
+          {
+            "type": "text",
+            "heading": "設計原則",
+            "body": "基於研究洞察，我們確立了三個設計原則：\n1. 減少認知負擔 — 將表單拆分成符合心智模型的小步驟\n2. 即時回饋 — 提供行內錯誤提示，不等到送出才顯示\n3. 讓用戶感覺掌控 — 清楚的進度指示器讓用戶知道距離完成還有多遠"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-01-wireframe.jpg",
+            "alt": "結帳流程線框圖",
+            "caption": "重設計後的三步驟結帳流程線框圖"
+          },
+          {
+            "type": "text",
+            "heading": "設計產出",
+            "body": "最終設計將原本的 7 個頁面整合為 3 個清晰步驟，並加入地址自動填入、信用卡即時驗證等功能。視覺上保持品牌一致性，並針對行動端進行了特別優化。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-01-final.jpg",
+            "alt": "最終設計稿",
+            "caption": "最終設計稿 — 桌面版與行動版"
+          },
+          {
+            "type": "text",
+            "heading": "商業目標與成果",
+            "body": "上線後三個月的數據顯示，結帳完成率從 32% 提升至 60%，轉換率提升 28%。客戶滿意度 NPS 分數也從 23 提升至 51。"
+          },
+          {
+            "type": "text",
+            "heading": "學習與心得",
+            "body": "這個專案讓我深刻體會到，數據只能告訴你「哪裡出了問題」，但唯有真正與用戶對話，才能理解「為什麼」。設計師的價值在於把這兩者橋接起來，轉化為具體可行的設計方案。"
+          }
+        ],
+        "founderFeedback": {
+          "quote": "Loanne 能夠快速理解我們的商業目標，同時將用戶的聲音轉化為清晰的設計方向。這次合作讓我們的產品真正提升了。",
+          "author": "某某公司 CEO"
+        }
+      }
+    },
+    {
+      "id": "project-02",
+      "category": "commercial",
+      "title": "B2B SaaS 儀表板設計",
+      "titleEn": "B2B SaaS Dashboard Design",
+      "year": "2024",
+      "type": "Product Design / Design System",
+      "role": "UX/UI Designer",
+      "client": "某某 SaaS 公司",
+      "coverImage": "/images/project-02-cover.jpg",
+      "tags": ["Dashboard", "Design System", "B2B"],
+      "summary": "為 B2B 分析平台設計核心儀表板，建立可擴展的設計系統，讓跨功能團隊能夠一致地快速交付。",
+      "featured": true,
+      "detail": {
+        "metadata": {
+          "year": "2024",
+          "projectType": "Product Design / Design System",
+          "role": "UX/UI Designer",
+          "client": "某某 SaaS 公司",
+          "duration": "6 個月"
+        },
+        "overview": "這是一個從零開始建立設計系統，並同步設計核心產品功能的複雜專案。在沒有任何設計規範的情況下，我們需要在六個月內交付一套能夠支撐整個產品線的設計語言。",
+        "background": "客戶的產品已有 3 年歷史，但設計積累了大量不一致性，不同功能模組的 UI 風格差異明顯。工程師每次開發新功能都需要重新決定樣式，嚴重拖慢開發速度。",
+        "process": [
+          {
+            "phase": "設計稽核",
+            "description": "系統性盤點現有產品的所有 UI 元件，記錄不一致性，並與工程師討論技術限制。"
+          },
+          {
+            "phase": "Token 架構",
+            "description": "設計三層 Token 架構（Global → Alias → Component），確保未來的主題切換和品牌延伸的彈性。"
+          },
+          {
+            "phase": "元件建置",
+            "description": "按照原子設計原則，從 Atom 到 Organism 依序建立 60+ 個元件，每個都有完整的文件說明。"
+          }
+        ],
+        "contentBlocks": [
+          {
+            "type": "text",
+            "heading": "設計系統架構",
+            "body": "以原子設計（Atomic Design）為基礎，建立了包含 60+ 個元件的設計系統。Token 採用三層架構，從 Global Token（基礎色彩、字體）到 Alias Token（語意化命名）到 Component Token（元件專屬），確保系統的靈活性與一致性。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-02-system.jpg",
+            "alt": "設計系統元件總覽",
+            "caption": "設計系統元件庫概覽"
+          },
+          {
+            "type": "text",
+            "heading": "儀表板設計",
+            "body": "核心儀表板採用資訊層級清晰的佈局設計，支援自定義小工具排列。設計重點在於讓用戶能在 5 秒內找到他們最關心的指標，並採用漸進式揭露（Progressive Disclosure）避免資訊過載。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-02-dashboard.jpg",
+            "alt": "儀表板最終設計",
+            "caption": "核心儀表板 — 深色主題版本"
+          }
+        ],
+        "founderFeedback": {
+          "quote": "設計系統讓我們的開發速度提升了 40%。更重要的是，整個產品終於有了統一的視覺語言。",
+          "author": "CTO"
+        }
+      }
+    },
+    {
+      "id": "project-03",
+      "category": "commercial",
+      "title": "醫療 App 使用者研究",
+      "titleEn": "Healthcare App User Research",
+      "year": "2023",
+      "type": "UX Research",
+      "role": "UX Researcher",
+      "client": "某某醫療科技公司",
+      "coverImage": "/images/project-03-cover.jpg",
+      "tags": ["UX Research", "Healthcare", "Accessibility"],
+      "summary": "針對 50 歲以上用戶群體進行深度可用性研究，識別高齡使用者在數位健康工具中的障礙，並提出設計改善建議。",
+      "featured": true,
+      "detail": {
+        "metadata": {
+          "year": "2023",
+          "projectType": "UX Research",
+          "role": "UX Researcher",
+          "client": "某某醫療科技公司",
+          "duration": "3 個月"
+        },
+        "overview": "此研究計畫旨在了解 50 歲以上的用戶在使用醫療健康 App 時遇到的具體困難，以及他們對數位健康工具的態度和期望。",
+        "background": "客戶發現其 App 在 50 歲以上用戶的留存率顯著低於年輕用戶群，但缺乏具體的研究來解釋原因。",
+        "process": [
+          {
+            "phase": "研究計畫",
+            "description": "制定混合研究方法，結合問卷調查（n=150）、可用性測試（n=10）和深度訪談（n=8）。"
+          },
+          {
+            "phase": "田野研究",
+            "description": "在參與者的自然環境中進行觀察研究，了解他們實際使用手機的情境與習慣。"
+          },
+          {
+            "phase": "分析與報告",
+            "description": "整合量化與質性數據，產出完整的研究報告與 6 項具體設計建議。"
+          }
+        ],
+        "contentBlocks": [
+          {
+            "type": "text",
+            "heading": "核心發現",
+            "body": "研究發現高齡用戶面臨的主要障礙並非技術能力問題，而是信任感與安全感的缺失。他們擔心輸錯資料會造成嚴重後果，因此操作時格外謹慎，反而更容易因為過度猶豫而出錯。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-03-research.jpg",
+            "alt": "田野研究過程",
+            "caption": "在參與者家中進行的可用性測試"
+          },
+          {
+            "type": "text",
+            "heading": "設計建議",
+            "body": "基於研究發現，我們提出了六項設計改善建議，包括：增加操作確認機制、提供更清楚的錯誤復原路徑、加大點擊目標尺寸，以及在關鍵操作前提供充分的說明。"
+          }
+        ],
+        "founderFeedback": {
+          "quote": "這份研究報告改變了我們整個團隊對高齡使用者的認知。我們沒想到問題的根源不是字體太小，而是信任感。",
+          "author": "Product Manager"
+        }
+      }
+    },
+    {
+      "id": "project-04",
+      "category": "graphic",
+      "title": "品牌視覺識別設計",
+      "titleEn": "Brand Identity Design",
+      "year": "2023",
+      "type": "Visual Design / Branding",
+      "role": "Visual Designer",
+      "client": "某某文化品牌",
+      "coverImage": "/images/project-04-cover.jpg",
+      "tags": ["Branding", "Visual Design", "Typography"],
+      "summary": "為新興文化品牌設計完整的視覺識別系統，包含 Logo、色彩系統、字體規範與應用範本。",
+      "featured": false,
+      "detail": {
+        "metadata": {
+          "year": "2023",
+          "projectType": "Visual Design / Branding",
+          "role": "Visual Designer",
+          "client": "某某文化品牌",
+          "duration": "2 個月"
+        },
+        "overview": "為一個以台灣當代工藝為核心的文化品牌，建立具有當代感又保有東方底蘊的視覺識別系統。",
+        "background": "客戶希望品牌能吸引 25–40 歲的文化消費者，同時保持與傳統工藝的連結。現有的品牌形象過於傳統，無法觸達目標受眾。",
+        "process": [
+          {
+            "phase": "品牌探索",
+            "description": "透過 Brand Workshop 與客戶確認品牌定位、個性與差異化。建立品牌情緒板與競品分析。"
+          },
+          {
+            "phase": "概念開發",
+            "description": "發展 3 個設計方向，每個方向包含完整的 Logo 概念、色彩提案與應用示意。"
+          },
+          {
+            "phase": "精煉與交付",
+            "description": "根據客戶回饋精煉最終方向，並建立完整的品牌規範手冊。"
+          }
+        ],
+        "contentBlocks": [
+          {
+            "type": "text",
+            "heading": "設計概念",
+            "body": "Logo 設計靈感來自傳統編織紋路，以現代幾何語言重新詮釋，呈現「舊材料、新視角」的品牌核心主張。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-04-logo.jpg",
+            "alt": "品牌 Logo 設計",
+            "caption": "Logo 設計探索過程"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-04-brand.jpg",
+            "alt": "品牌應用展示",
+            "caption": "品牌識別應用於包裝、名片與數位媒體"
+          }
+        ],
+        "founderFeedback": {
+          "quote": "新的品牌識別讓我們在市場上終於有了清晰的面貌，銷售額在重新品牌化後的三個月內成長了 45%。",
+          "author": "品牌創辦人"
+        }
+      }
+    },
+    {
+      "id": "project-05",
+      "category": "graphic",
+      "title": "活動主視覺設計",
+      "titleEn": "Event Visual Design",
+      "year": "2022",
+      "type": "Visual Design / Campaign",
+      "role": "Art Director",
+      "client": "某設計論壇",
+      "coverImage": "/images/project-05-cover.jpg",
+      "tags": ["Event Design", "Poster", "Campaign"],
+      "summary": "擔任年度設計論壇的視覺總監，統籌規劃整體視覺策略，包含主視覺、印刷品、數位宣傳與活動現場視覺。",
+      "featured": false,
+      "detail": {
+        "metadata": {
+          "year": "2022",
+          "projectType": "Visual Design / Campaign",
+          "role": "Art Director",
+          "client": "某設計論壇",
+          "duration": "3 個月"
+        },
+        "overview": "擔任年度設計論壇的視覺總監，以「流動」為年度主題，設計橫跨線上線下的完整視覺系統。",
+        "background": "論壇希望打破過去嚴肅學術的形象，吸引更多年輕設計師參與，同時保持其作為業界重要平台的權威性。",
+        "process": [
+          {
+            "phase": "主題概念",
+            "description": "確立「流動」主題後，探索以液態形態、漸層色彩和動態排版來詮釋主題的設計語言。"
+          },
+          {
+            "phase": "視覺系統建立",
+            "description": "設計主視覺後，延伸出完整的視覺語言，確保各接觸點的一致性。"
+          },
+          {
+            "phase": "執行與監製",
+            "description": "監督印刷、數位媒體和現場佈展的執行，確保設計品質。"
+          }
+        ],
+        "contentBlocks": [
+          {
+            "type": "image",
+            "src": "/images/project-05-poster.jpg",
+            "alt": "活動主視覺海報",
+            "caption": "年度論壇主視覺海報"
+          },
+          {
+            "type": "text",
+            "heading": "視覺策略",
+            "body": "以液態漸層作為主要視覺元素，代表設計領域的流動性與跨界融合。色彩選用深邃的藍紫到溫暖的橙紅漸層，象徵從理性思考到感性表達的設計光譜。"
+          },
+          {
+            "type": "image",
+            "src": "/images/project-05-materials.jpg",
+            "alt": "活動周邊設計",
+            "caption": "活動印刷品與數位素材"
+          }
+        ],
+        "founderFeedback": {
+          "quote": "今年的視覺是歷屆中最受好評的。報名人數創歷年新高，有很大一部分歸功於視覺吸引力。",
+          "author": "論壇主辦人"
+        }
+      }
+    }
+  ]
+}

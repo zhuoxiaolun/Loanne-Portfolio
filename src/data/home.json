@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Loanne",
+    "titleEn": "UX Designer",
+    "tagline": "我相信好的設計，是讓人感覺不到設計存在的設計。",
+    "ctaPrimary": { "label": "查看作品", "to": "/projects" },
+    "ctaSecondary": { "label": "關於我", "to": "/about" }
+  },
+  "featuredProjects": {
+    "sectionTitle": "精選作品",
+    "sectionSubtitle": "Selected Work",
+    "ids": ["project-01", "project-02", "project-03"]
+  },
+  "specialSection": {
+    "eyebrow": "Design Philosophy",
+    "title": "以人為本，以故事為核心",
+    "body": "每一個設計決策背後，都有使用者真實的需求與情感。我從研究出發，透過迭代將洞察轉化為有意義的體驗。",
+    "highlight": "人"
+  }
+}
