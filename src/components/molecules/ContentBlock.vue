@@ -2,7 +2,7 @@
   <div class="content-block" :class="`content-block--${block.type}`">
     <!-- Text block -->
     <template v-if="block.type === 'text'">
-      <h3 v-if="block.heading" class="content-block__heading text-h3">
+      <h3 v-if="block.heading" class="content-block__heading">
         {{ block.heading }}
       </h3>
       <div class="content-block__body text-body" v-html="formattedBody" />
@@ -53,7 +53,12 @@ const formattedBody = computed(() => {
 }
 
 .content-block__heading {
-  color: var(--neutral-900);
+  font-family: var(--font-sans-zh);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neutral-400);
 }
 
 .content-block__body {

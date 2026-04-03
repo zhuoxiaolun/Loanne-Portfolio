@@ -5,16 +5,19 @@
     <div class="project-detail__header">
       <div class="project-detail__header-bg" aria-hidden="true" />
       <div class="container project-detail__header-inner">
-        <RouterLink to="/projects" class="project-detail__back text-small">
+        <RouterLink to="/projects" class="project-detail__back">
           ← 返回作品集
         </RouterLink>
-        <div class="project-detail__tags">
-          <AppTag
-            v-for="tag in project.tags"
-            :key="tag"
-            color="cherry"
-          >{{ tag }}</AppTag>
+
+        <!-- Horizontal meta pills -->
+        <div class="project-detail__meta-pills">
+          <span class="meta-pill">年度：{{ project.detail.metadata.year }}</span>
+          <span class="meta-pill">類型：{{ project.detail.metadata.projectType }}</span>
+          <span class="meta-pill">職責：{{ project.detail.metadata.role }}</span>
+          <span class="meta-pill">客戶：{{ project.detail.metadata.client }}</span>
+          <span class="meta-pill">時程：{{ project.detail.metadata.duration }}</span>
         </div>
+
         <h1 class="project-detail__title text-h1">{{ project.title }}</h1>
         <p class="project-detail__title-en">{{ project.titleEn }}</p>
         <p class="project-detail__summary text-body">{{ project.summary }}</p>
@@ -30,63 +33,47 @@
       />
     </div>
 
-    <!-- Body: sidebar + content -->
-    <div class="container project-detail__body">
-
-      <!-- Sidebar: metadata -->
-      <aside class="project-detail__sidebar">
-        <div class="project-detail__meta-card">
-          <dl class="project-detail__meta-list">
-            <MetaItem label="年度" :value="project.detail.metadata.year" />
-            <MetaItem label="專案類型" :value="project.detail.metadata.projectType" />
-            <MetaItem label="職責範圍" :value="project.detail.metadata.role" />
-            <MetaItem label="客戶 / 主辦單位" :value="project.detail.metadata.client" />
-            <MetaItem label="時程" :value="project.detail.metadata.duration" />
-          </dl>
-        </div>
-
-        <!-- Process phases -->
-        <div v-if="project.detail.process.length" class="project-detail__process">
-          <h2 class="project-detail__process-title text-h4">設計流程</h2>
-          <ol class="project-detail__process-list">
-            <li
-              v-for="(phase, i) in project.detail.process"
-              :key="i"
-              class="project-detail__process-item"
-            >
-              <span class="project-detail__process-num">{{ String(i + 1).padStart(2, '0') }}</span>
-              <div>
-                <strong class="project-detail__phase-name text-small">{{ phase.phase }}</strong>
-                <p class="text-small">{{ phase.description }}</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </aside>
-
-      <!-- Main content -->
+    <!-- Single-column article -->
+    <div class="container project-detail__content">
       <article class="project-detail__article">
 
         <!-- Overview -->
-        <section class="project-detail__overview">
-          <h2 class="text-h3">專案概述</h2>
+        <section class="article-section">
+          <h2 class="section-label">專案概述</h2>
           <p class="text-body">{{ project.detail.overview }}</p>
         </section>
 
-        <section class="project-detail__background">
-          <h2 class="text-h3">專案背景</h2>
+        <!-- Background -->
+        <section class="article-section">
+          <h2 class="section-label">專案背景</h2>
           <p class="text-body">{{ project.detail.background }}</p>
         </section>
 
-        <!-- Content blocks (text + image) -->
+        <!-- Process phases -->
+        <section v-if="project.detail.process.length" class="article-section">
+          <h2 class="section-label">設計流程</h2>
+          <ol class="process-grid">
+            <li
+              v-for="(phase, i) in project.detail.process"
+              :key="i"
+              class="process-item"
+            >
+              <span class="process-num">{{ String(i + 1).padStart(2, '0') }}</span>
+              <strong class="process-phase-name">{{ phase.phase }}</strong>
+              <p class="process-phase-desc">{{ phase.description }}</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Content blocks -->
         <ContentBlock
           v-for="(block, i) in project.detail.contentBlocks"
           :key="i"
           :block="block"
-          class="project-detail__block"
+          class="article-section"
         />
 
-        <!-- Founder feedback -->
+        <!-- Founder feedback quote -->
         <blockquote
           v-if="project.detail.founderFeedback"
           class="project-detail__quote"
@@ -127,10 +114,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import AppTag from '@/components/atoms/AppTag.vue'
 import AppImage from '@/components/atoms/AppImage.vue'
 import AppButton from '@/components/atoms/AppButton.vue'
-import MetaItem from '@/components/molecules/MetaItem.vue'
 import ContentBlock from '@/components/molecules/ContentBlock.vue'
 import projectsData from '@/data/projects.json'
 import type { Project } from '@/types'
@@ -156,6 +141,7 @@ const nextProject = computed(() =>
 </script>
 
 <style scoped>
+/* ─── Header ─────────────────────────────────────────── */
 .project-detail__header {
   position: relative;
   overflow: hidden;
@@ -180,6 +166,8 @@ const nextProject = computed(() =>
 .project-detail__back {
   color: var(--neutral-500);
   text-decoration: none;
+  font-size: 0.875rem;
+  font-family: var(--font-sans-zh);
   transition: color var(--transition-base);
   align-self: flex-start;
 }
@@ -188,124 +176,119 @@ const nextProject = computed(() =>
   color: var(--cherry-600);
 }
 
-.project-detail__tags {
+/* ─── Meta pills ─────────────────────────────────────── */
+.project-detail__meta-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-xs);
 }
 
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-round);
+  background: var(--neutral-0);
+  border: 1px solid var(--neutral-100);
+  font-family: var(--font-sans-zh);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--neutral-600);
+  white-space: nowrap;
+}
+
+/* ─── Title / summary ────────────────────────────────── */
 .project-detail__title {
   color: var(--neutral-900);
+  margin-top: var(--spacing-xs);
 }
 
 .project-detail__title-en {
   font-family: var(--font-serif-en);
   font-style: italic;
-  font-size: 1.25rem;
-  color: var(--neutral-600);
-  margin-top: calc(var(--spacing-s) * -1);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--neutral-700);
+  line-height: 1.2;
 }
 
 .project-detail__summary {
   color: var(--neutral-700);
 }
 
-/* Cover */
+/* ─── Cover image ────────────────────────────────────── */
 .project-detail__cover {
   margin-bottom: var(--spacing-4xl);
 }
 
-/* Body layout */
-.project-detail__body {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--spacing-4xl);
-  align-items: start;
+/* ─── Article (single column) ────────────────────────── */
+.project-detail__content {
   padding-bottom: var(--spacing-6xl);
 }
 
-/* Sidebar */
-.project-detail__sidebar {
-  position: sticky;
-  top: calc(80px + var(--spacing-l));
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-l);
-}
-
-.project-detail__meta-card {
-  background: var(--neutral-0);
-  border: 1px solid var(--neutral-100);
-  border-radius: var(--radius-l);
-  padding: var(--spacing-l);
-  box-shadow: var(--shadow-card);
-}
-
-.project-detail__meta-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-m);
-}
-
-.project-detail__process {
-  background: var(--cherry-50);
-  border-radius: var(--radius-l);
-  padding: var(--spacing-l);
-}
-
-.project-detail__process-title {
-  color: var(--neutral-900);
-  margin-bottom: var(--spacing-m);
-}
-
-.project-detail__process-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-m);
-}
-
-.project-detail__process-item {
-  display: flex;
-  gap: var(--spacing-s);
-  align-items: flex-start;
-}
-
-.project-detail__process-num {
-  font-family: var(--font-serif-en);
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: var(--cherry-500);
-  line-height: 1.2;
-  flex-shrink: 0;
-  width: 28px;
-}
-
-.project-detail__phase-name {
-  display: block;
-  font-weight: 700;
-  color: var(--neutral-900);
-  margin-bottom: var(--spacing-xxs);
-}
-
-/* Article */
 .project-detail__article {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3xl);
+  gap: var(--spacing-4xl);
 }
 
-.project-detail__overview,
-.project-detail__background {
+.article-section {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-m);
 }
 
-.project-detail__block {
-  /* spacing handled by gap above */
+.section-label {
+  font-family: var(--font-sans-zh);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neutral-400);
 }
 
-/* Quote */
+/* ─── Process grid ───────────────────────────────────── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-l);
+  list-style: none;
+  padding: 0;
+}
+
+.process-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-l);
+  background: var(--cherry-50);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--neutral-100);
+}
+
+.process-num {
+  font-family: var(--font-serif-en);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cherry-500);
+  line-height: 1;
+}
+
+.process-phase-name {
+  font-family: var(--font-sans-zh);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+}
+
+.process-phase-desc {
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  line-height: 1.7;
+}
+
+/* ─── Quote ──────────────────────────────────────────── */
 .project-detail__quote {
   background: var(--lake-blue-50);
   border-left: 3px solid var(--lake-blue-500);
@@ -330,7 +313,7 @@ const nextProject = computed(() =>
   font-weight: 700;
 }
 
-/* Bottom nav */
+/* ─── Bottom nav ─────────────────────────────────────── */
 .project-detail__bottom-nav {
   padding-bottom: var(--spacing-5xl);
   display: flex;
@@ -345,32 +328,16 @@ const nextProject = computed(() =>
   gap: var(--spacing-s);
 }
 
-@media (max-width: 1024px) {
-  .project-detail__body {
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .process-grid {
     grid-template-columns: 1fr;
   }
-  .project-detail__sidebar {
-    position: static;
-  }
-  .project-detail__meta-card {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-m);
-  }
-  .project-detail__meta-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 640px) {
   .project-detail__bottom-nav {
     flex-direction: column;
     gap: var(--spacing-m);
     align-items: flex-start;
-  }
-  .project-detail__meta-list {
-    grid-template-columns: 1fr;
   }
 }
 </style>
