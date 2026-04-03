@@ -10,7 +10,224 @@
   "featuredProjects": {
     "sectionTitle": "精選作品",
     "sectionSubtitle": "Selected Work",
-    "ids": ["project-01", "project-02", "project-03"]
+    "projects": [
+      {
+        "id": "heptabase-ai",
+        "category": "uiux",
+        "title": "Heptabase AI Agent 功能設計",
+        "titleEn": "Heptabase AI Agent Feature Design",
+        "year": "2025",
+        "type": "UX Research / UI Design",
+        "role": "UX Research、UI Design",
+        "client": "AAPD 虛擬專案 / E3I3 STUDIO",
+        "coverImage": "/images/heptabase-ai-cover.jpg",
+        "tags": ["UX Research", "UI Design", "AI Design", "Knowledge Management"],
+        "summary": "整合五大 AI 功能，讓知識連結更快、思考保持主動，解決 Heptabase 使用者的知識碎片化問題。",
+        "detail": {
+          "metadata": {
+            "year": "2025 / 11",
+            "projectType": "虛擬專案",
+            "role": "UX Research、UI Design",
+            "client": "AAPD / E3I3 STUDIO",
+            "duration": ""
+          },
+          "overview": "本專案以 AAPD 虛擬專案形式進行，針對知識管理工具 Heptabase 設計一套 AI Agent 功能系統。我們識別出使用者在學習與研究過程中「資訊碎片化」與「知識連結困難」的核心問題，提出 AI 拆分知識卡片、AI 分類卡片、AI 串聯知識譜系、AI 提供卡片論點、AI 搜尋回顧等五大功能，協助使用者快速形成知識脈絡，並在 AI 輔助下保持思考主動性。",
+          "background": "Heptabase 以「空間化思考」為核心，透過卡片與白板的結合，讓使用者以視覺化方式整理與連結複雜知識。然而，現有 AI 功能主要集中在摘要與理解層面，在探索、收集、思考、創作等多個知識週期階段仍有深化空間，這也正是本專案的設計切入點。",
+          "process": [
+            {
+              "phase": "發現問題",
+              "description": "分析 Heptabase 企業背景與產品現況，引入「知識週期」（探索→收集→思考→創作→分享→回顧）作為分析框架；透過競品分析比對各階段 AI 功能缺口。"
+            },
+            {
+              "phase": "使用者研究",
+              "description": "線上問卷 12 位使用者了解知識整理痛點與 AI 使用情境；深度訪談 9 位學習/研究頻率每週 3 次以上的使用者。"
+            },
+            {
+              "phase": "定義問題",
+              "description": "將 Heptabase 提供的 HMW 切分為 4 組關鍵字，聚焦「如何設計能根據任務調整協助方式的 AI Agent」，選定學習型使用者為主要族群。"
+            },
+            {
+              "phase": "發想設計",
+              "description": "以影響力（痛點解決程度）、可行性（開發與技術難度）、商業價值（企業商業指標符合度）三項核心指標篩選設計解法，選出五大 AI 功能。"
+            },
+            {
+              "phase": "設計產出",
+              "description": "建立 Design System 延伸元件、設計五大功能高保真原型（Prototype）與 User Journey Map。"
+            },
+            {
+              "phase": "測試迭代",
+              "description": "對 4 位既有 Heptabase 使用者（2 年以上）進行質化訪談；同步收集 30 份線上量化問卷，衡量實用度、滿意度、NPS 與訂閱意願，共進行 4 輪設計迭代。"
+            }
+          ],
+          "contentBlocks": [
+            {
+              "type": "text",
+              "heading": "核心痛點 / 問題陳述",
+              "body": "HMW：如何針對不同的學習／研究情境，設計一個能根據使用者任務調整協助方式的 AI Agent？\n\n• 痛點 1：資訊過量難以消化——使用者蒐集大量資料後，面對海量卡片無法有效整理，知識停留在「收集」而無法「理解」\n• 痛點 2：知識連結困難——不同筆記之間的關係不易看見，使用者無法快速建立主題的完整知識譜系\n• 痛點 3：舊知識難以喚回——當卡片數量增加，遺忘程度越來越高，難以找回與現有研究相關的過往知識"
+            },
+            {
+              "type": "text",
+              "heading": "設計原則",
+              "body": "1. 思考主動性優先：AI 提供建議與關聯，但最終決策權保留給使用者；避免「全自動化」設計，讓使用者始終是知識組織的主導者\n2. 邏輯透明，建立 AI 信任：每項 AI 建議都應顯示依據，讓使用者能理解 AI 的思考邏輯，從而有信心採納或調整建議\n3. 融入既有空間化操作：所有新功能遵循 Heptabase 白板操作慣例，降低認知負擔，確保 AI 是工作流程的延伸而非中斷"
+            },
+            {
+              "type": "text",
+              "heading": "設計迭代",
+              "body": "四輪迭代聚焦在讓 AI 的「邏輯透明」，從只顯示結果到展示依據，大幅提升使用者對 AI 的信任感。\n\n版本 1：AI 關聯提示一次只連結兩張卡片；AI 分類卡片直接顯示架構結果；知識譜系功能位於聊天室中。\n\n版本 2：改為一次可串聯多張卡片；新增 AI 分類依據說明；知識譜系入口移至白板上方功能欄，並整合進 Card Library。\n\n最終版本：以「AI 邏輯透明化」為核心，AI 搜尋回顧以情境化搜尋為入口（如輸入過往閱讀的書名或文章），在訪談中獲得最多正向回饋。"
+            },
+            {
+              "type": "text",
+              "heading": "商業目標與成果",
+              "body": "• 100% 的受訪既有使用者表示 AI Agent 功能會增加他們繼續使用的意願\n• NPS 達 54（推薦佔比 62%，高於軟體與線上服務業平均值 44）\n• 80% 的潛在使用者會因為 AI Agent 功能而想嘗試使用 Heptabase"
+            },
+            {
+              "type": "text",
+              "heading": "學習與心得",
+              "body": "「AI 邏輯透明化」的設計決策源於訪談中使用者真實說出的不安——他們不反對 AI，但需要看見 AI 的推理過程。這讓我理解：設計 AI 介面，不只是設計功能，更是設計信任。\n\n知識管理工具的 AI 設計需要深刻理解使用者的「思考流程」，而不只是「操作流程」。這次經驗讓我開始思考：好的 AI 設計師，必須同時是一個好的認知心理學觀察者。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "piccollage",
+        "category": "uiux",
+        "title": "PicCollage 使用者體驗重設計",
+        "titleEn": "PicCollage UX Redesign",
+        "year": "2024",
+        "type": "UX Research / UI Design",
+        "role": "UX Research、UI Design",
+        "client": "aapd 虛擬專案",
+        "coverImage": "/images/piccollage-cover.jpg",
+        "tags": ["UX Research", "UI Design", "Mobile App"],
+        "summary": "重新梳理 PicCollage 拼貼創作流程，從功能層級、引導機制到訂閱策略，提升新增活躍用戶與 Weekly Retention。",
+        "detail": {
+          "metadata": {
+            "year": "2024 / 11",
+            "projectType": "虛擬專案",
+            "role": "UX Research、UI Design",
+            "client": "aapd",
+            "duration": "6 週"
+          },
+          "overview": "PicCollage 是一款擁有 1,500 萬月活躍用戶的影像創意工具，提供拼貼、卡片製作與視覺內容編輯功能。本專案針對「拼貼完成率偏低」這一核心問題，透過競品分析、問卷與使用者訪談，定義出功能層級不清、操作引導不足、訂閱動機薄弱三大痛點，並提出功能架構優化、AI 功能引導強化、季度訂閱方案等設計解法，目標是將 PicCollage 從特定用途工具轉型為融入日常生活的創意內容平台。",
+          "background": "PicCollage 現有核心問題在於：使用者在進行拼貼創作時，操作流程缺乏吸引力與易用性，導致完成率偏低，進而影響用戶黏著度與每週回訪率。市場機會點在於透過優化功能分類、引入日常實用模板與 AI 個人化推薦，吸引更多日常使用者，並發展成多場景、高價值的創意內容平台。",
+          "process": [
+            {
+              "phase": "發現問題（W1）",
+              "description": "梳理 PicCollage 現有產品願景與核心指標，定義設計進場的方向與範疇。"
+            },
+            {
+              "phase": "使用者研究（W2）",
+              "description": "進行桌面調查、競品分析、北美與歐洲市場線上問卷及深度訪談，以 SWOT 分析收斂市場位置。"
+            },
+            {
+              "phase": "定義問題（W3）",
+              "description": "以親和圖法與四象限分析收斂痛點，定義三類使用者族群（新用戶、復活用戶、長期用戶）的核心需求差異。"
+            },
+            {
+              "phase": "發想設計（W4）",
+              "description": "針對各痛點進行概念發想與可行性評估，建立功能優先級框架，確認高優先設計方向。"
+            },
+            {
+              "phase": "設計產出（W5）",
+              "description": "設計功能架構優化、AI 功能引導、季度訂閱方案等核心介面，完成高保真原型。"
+            },
+            {
+              "phase": "測試迭代（W6）",
+              "description": "依回饋進行設計迭代調整，完成最終設計交付。"
+            }
+          ],
+          "contentBlocks": [
+            {
+              "type": "text",
+              "heading": "核心痛點 / 問題陳述",
+              "body": "HMW：我們如何能讓 PicCollage 的操作流程變得直覺且有引導感，使不同程度的用戶都能順利完成創作，進而感受到訂閱的長期價值？\n\n• 痛點 1：功能層級分類不順暢 — 首頁兩個相似的創作入口造成混淆，模板深埋於不分類的長列表中，相關功能缺乏清楚區隔\n• 痛點 2：缺乏日常使用與長期訂閱動機 — 產品被視為特定用途工具而非日常必備，月訂閱吸引力不足，7 天試用過短難以體驗訂閱價值\n• 痛點 3：缺乏足夠教學與操作提示 — 使用 AI 功能時無任何提示，新用戶無法快速上手，步驟多但引導少"
+            },
+            {
+              "type": "text",
+              "heading": "設計原則",
+              "body": "1. 降低決策負擔（Reduce Decision Load）：減少使用者在每個步驟的選擇焦慮，從首頁入口到模板選擇，每一步都應有清楚的預設路徑\n2. 引導而非說明（Guide, Not Explain）：在操作中即時提供情境化提示（尤其是 AI 功能），而非依賴靜態說明文件\n3. 讓訂閱有感（Make Subscription Tangible）：每個設計決策都要能讓用戶在使用中自然感受到付費功能的價值差異，降低訂閱轉換的心理門檻"
+            },
+            {
+              "type": "text",
+              "heading": "設計迭代",
+              "body": "版本 1：針對功能層級混亂的問題，優先優化資訊架構與模板分類介面。問題：僅改善架構後，新用戶仍反映不知道如何開始、AI 功能難以信任。\n\n版本 2：在 AI 功能進入點加入操作提示與教學流程，同時設計季度訂閱方案降低轉換門檻。訂閱路徑更清晰，用戶從「體驗功能」到「感受訂閱價值」的旅程更具連貫性。\n\n最終版本：以「價值循環」為核心整合所有設計，確保每個介面改動都能直接對應「提升新增活躍用戶」與「拼貼完成率」兩個核心指標。"
+            },
+            {
+              "type": "text",
+              "heading": "學習與心得",
+              "body": "研究的價值不在於確認已知，而在於推翻假設，讓設計聚焦在真正有感的問題上。\n\n最大收穫：學會用「價值循環」的視角連結設計決策與商業指標。每一個介面改動都需要能追溯到「這如何影響新增活躍用戶或完成率？」，這讓設計討論更聚焦、更有說服力。\n\n下次會做得更好：更早進行使用性測試驗證設計假設，而非等到高保真原型完成才收回饋。早期低保真測試能節省大量迭代成本。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "minto-app",
+        "category": "uiux",
+        "title": "Minto APP",
+        "titleEn": "Minto Streaming APP Design",
+        "year": "2025",
+        "type": "UI Design / Design System",
+        "role": "設計系統與 UI 視覺建立、Prototype 製作",
+        "client": "虛擬專案",
+        "coverImage": "/images/minto-app-cover.jpg",
+        "tags": ["UI Design", "Design System", "Mobile App", "Streaming"],
+        "summary": "為串流影音平台 Minto 建立完整 Design System，以沉浸式深色 UI 強化觀影體驗，讓忙碌使用者能在碎片時間快速決策。",
+        "detail": {
+          "metadata": {
+            "year": "2025 / 04",
+            "projectType": "虛擬專案",
+            "role": "設計系統與 UI 視覺建立、設計元件與 UI 視覺統整、Prototype 製作、交付文件整理",
+            "client": "虛擬專案",
+            "duration": "4 週"
+          },
+          "overview": "串流影音已成為大眾主要娛樂方式，但在碎片化的觀影時間中，用戶面臨選擇障礙。分析 Netflix、iQIYI、KKTV 三大平台後，發現共通痛點：功能分散無法快速決策、分類推薦不精細、缺乏即時評價機制。Minto 聚焦核心挑戰：如何幫助忙碌的使用者，在碎片時間中快速找到適合觀看的影片？",
+          "background": "目標用戶以 25–44 歲年齡層為主力，是典型上班族年齡段。不僅使用頻率高，也是願意付費支持平台的核心族群。專案涵蓋 Splash 啟動頁、首頁內容發現、影片詳情頁、我的收藏庫、搜尋功能，以及完整 Design System 與 Component Library。",
+          "process": [
+            {
+              "phase": "競品分析",
+              "description": "分析 Netflix、iQIYI、KKTV 三大串流平台，歸納功能分散、推薦不精細、缺乏即時評價等共通痛點，確立 Minto 的差異化方向。"
+            },
+            {
+              "phase": "風格定調",
+              "description": "以深藍紫漸層為主視覺，搭配亮色 CTA，強調沉浸感；透過 Mood Board 確立深色影音平台風格。"
+            },
+            {
+              "phase": "Design Token 建立",
+              "description": "建立 Neutral / Primary（紫藍）/ Secondary / Error / Success / Warning 六層色彩架構，搭配完整字型 Scale 與間距規則。"
+            },
+            {
+              "phase": "Component 建構",
+              "description": "建構 Navigation、Forms/Input、Content Card（影片縮圖、劇集預覽、評分元件）等核心元件，涵蓋多種互動狀態。"
+            },
+            {
+              "phase": "頁面設計",
+              "description": "設計 Splash 啟動頁、首頁、影片詳情頁、我的收藏庫、搜尋頁等主要畫面，並規劃各 Happy Path 流程。"
+            },
+            {
+              "phase": "UI Kit 整理",
+              "description": "統整交付文件，整理 Design System 頁面與 Component 頁面，完成 Prototype 串接。"
+            }
+          ],
+          "contentBlocks": [
+            {
+              "type": "text",
+              "heading": "設計目標",
+              "body": "1. 建立統一、可擴充的 Design System（色彩、字型、間距、圖示），確保整個 App 視覺一致性\n2. 以沉浸式深色 UI 風格強化影音觀看情境，降低視覺疲勞並突顯影片縮圖與內容資訊\n3. 設計清晰的 Happy Path 流程，讓使用者能在碎片時間內快速完成內容瀏覽、決策與收藏"
+            },
+            {
+              "type": "text",
+              "heading": "關鍵設計決策",
+              "body": "採用深色沉浸式 UI 風格：以深藍紫系列為主背景色，搭配漸層與亮紫 CTA 按鈕。影音內容在深色背景下視覺對比更強，縮圖更突出；深色介面也降低上班族在昏暗環境（如通勤、睡前）觀看時的視覺疲勞。\n\n建立六層色彩 Token 架構：分離 Neutral（灰階）、Primary（紫藍主色）、Secondary、Error、Success、Warning 六個色彩群組，確保設計系統的可維護性與擴充性。\n\n以 Happy Path 為主軸規劃核心流程：針對影片詳情瀏覽、我的收藏庫管理、搜尋內容三條主要路徑獨立規劃流程並加上說明標註，讓評審能快速理解核心操作流程。"
+            },
+            {
+              "type": "text",
+              "heading": "學習與心得",
+              "body": "在團隊分工的專案中，提前建立清晰的 Design Token 命名規則與 Component 規格，能有效減少跨成員的視覺不一致，也讓後期整合更順暢。\n\n下次會在進入元件建構前，先完成更完整的 Information Architecture 確認，避免頁面流程在後期反覆調整造成元件重工。"
+            }
+          ]
+        }
+      }
+    ]
   },
   "specialSection": {
     "eyebrow": "Design Philosophy",

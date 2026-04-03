@@ -117,11 +117,15 @@ import { useRoute } from 'vue-router'
 import AppImage from '@/components/atoms/AppImage.vue'
 import AppButton from '@/components/atoms/AppButton.vue'
 import ContentBlock from '@/components/molecules/ContentBlock.vue'
+import homeData from '@/data/home.json'
 import projectsData from '@/data/projects.json'
 import type { Project } from '@/types'
 
 const route = useRoute()
-const allProjects = projectsData.projects as Project[]
+const allProjects = [
+  ...homeData.featuredProjects.projects,
+  ...projectsData.projects,
+] as Project[]
 
 const project = computed(() =>
   allProjects.find(p => p.id === route.params.id)

@@ -54,7 +54,6 @@ export interface Project {
   coverImage: string
   tags: string[]
   summary: string
-  featured: boolean
   detail: ProjectDetail
 }
 
