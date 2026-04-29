@@ -1,70 +1,63 @@
 {
   "hero": {
-    "eyebrow": "About Me",
-    "name": "Loanne",
-    "bio": "我是一位以使用者研究為核心的 UX 設計師，熱衷於將複雜的系統轉化為直覺、有溫度的產品體驗。擅長跨職能協作，從 0 到 1 建立設計流程，並以數據驅動設計決策。",
-    "bioExtra": "目前關注 AI 輔助設計工具的發展，探索如何讓設計師在新工具浪潮中保持創造力的主導權。"
+    "bio": "我是一位帶有前端思維的 UI 視覺設計師。因為了解網頁結構的組成邏輯，我能用開發端也聽得懂的語言進行溝通，精準掌握實作重點。在之前的經驗裡，我曾主動發起並建立公司的 Design System 和 Design Tokens，當同事們發現「原來這樣做流程變清楚了」，那種成就感對我來說就是工作的動力。",
+    "bioExtra": "除了精進設計實力，我更在乎的是保持彈性。我喜歡透過社群交流來吸收新知識、認識朋友，感受這個圈子的熱度；但在資訊過載的時代，我也需要獨處的時間來放空和消化。在快速變動的不確定性中，去感受那些「不變」的東西對我來說很重要。我希望自己不只是在把設計做好，而是能成為一個好溝通、了解自己也了解他人需求的人，讓每一次合作都能在舒服的狀態下激盪出火花。"
   },
-  "professionalTools": {
-    "title": "設計工具",
-    "items": [
-      { "name": "Figma", "level": "Expert" },
-      { "name": "Adobe Illustrator", "level": "Proficient" },
-      { "name": "Protopie", "level": "Proficient" },
-      { "name": "Miro", "level": "Proficient" },
-      { "name": "Framer", "level": "Familiar" }
-    ]
+  "hardSkills": {
+    "desc": "從平面到動態，具備完整的視覺執行能力，涵蓋向量繪製、影像合成、動態效果與影音剪輯。同時了解 HTML5 與 CSS3，能與開發團隊順暢溝通"
   },
-  "aiTools": {
-    "title": "AI 工具",
-    "items": [
-      { "name": "Claude", "level": "Expert" },
-      { "name": "Midjourney", "level": "Proficient" },
-      { "name": "ChatGPT", "level": "Proficient" },
-      { "name": "Cursor", "level": "Familiar" }
-    ]
-  },
+  "softSkills": ["注重細節", "跨團隊溝通", "AI 工作流", "適應力強", "持續學習", "同理心"],
+  "aiTools": [
+    {
+      "key": "efficiency",
+      "title": "AI Efficiency",
+      "chips": ["Claude code", "skill"],
+      "desc": "使用 Claude Code 建立專屬的工作規則與自動化流程，將重複性任務交給 AI 處理，讓我能把時間專注在真正需要創意判斷的地方。"
+    },
+    {
+      "key": "ideation",
+      "title": "AI Ideation",
+      "chips": ["figma make", "stitch", "Lovable", "Bolt", "Claude Design"],
+      "desc": "在發想階段，透過 AI 快速生成多樣化的 Moodboard 與版面草稿，短時間內探索大量視覺方向，再從中挑選最符合品牌調性的設計路線。"
+    },
+    {
+      "key": "research",
+      "title": "AI Research",
+      "chips": ["Perplexity", "Gemini"],
+      "desc": "利用 AI 從大量資訊中快速篩選出關鍵洞察，讓每一個設計決策都有數據與市場脈絡作為依據，而不只是憑直覺。"
+    }
+  ],
   "experience": {
-    "title": "工作經歷",
     "items": [
       {
-        "role": "Senior UX Designer",
-        "company": "某某科技公司",
-        "period": "2023 — Present",
-        "description": "負責核心產品 UX 策略與設計系統建置，帶領小型設計團隊推動以研究為基礎的設計文化。"
+        "displayTitle": "UI視覺設計師 @ 國際亞洲出版股份有限公司(美麗佳人)",
+        "period": "2025/2 - Present",
+        "logoKey": "media"
       },
       {
-        "role": "UX Designer",
-        "company": "某某數位設計公司",
-        "period": "2021 — 2023",
-        "description": "主導多個電商與 SaaS 平台的 UX 設計，完整參與從研究、概念到上線的完整設計流程。"
+        "displayTitle": "智慧辨識產業服務研究中心－設計工讀生",
+        "period": "2023/9 - 2024/6",
+        "logoKey": "lab"
       },
       {
-        "role": "UI/UX Designer",
-        "company": "某某新創公司",
-        "period": "2019 — 2021",
-        "description": "負責行動應用程式的 UI 設計及使用者測試，累積豐富的 0 to 1 產品設計經驗。"
+        "displayTitle": "良艮創意有限公司－實習生",
+        "period": "2023/7 – 2023/8",
+        "logoKey": "agency"
+      },
+      {
+        "displayTitle": "國立雲林科技大學 視覺傳達設計系",
+        "period": "2020 – 2024",
+        "logoKey": "school"
       }
     ]
   },
   "awards": {
-    "title": "獎項與認可",
     "items": [
-      {
-        "title": "Red Dot Design Award",
-        "year": "2024",
-        "description": "Communication Design — Digital Category"
-      },
-      {
-        "title": "iF Design Award",
-        "year": "2023",
-        "description": "User Experience Design"
-      },
-      {
-        "title": "Golden Pin Design Award",
-        "year": "2022",
-        "description": "互動設計類 — 入選"
-      }
+      { "title": "放視大賞 產品設計組 入圍", "year": "2024" },
+      { "title": "時報金犢獎榮獲「全球大獎-銀犢獎」", "year": "2023" },
+      { "title": "台灣富士軟片 混出你的專屬色競賽榮獲「特別獎」", "year": "2022" },
+      { "title": "台灣國際海報新星獎榮獲「入選獎」", "year": "2022" },
+      { "title": "國際三校海報創作聯展榮獲「優選獎」", "year": "2021" }
     ]
   }
 }

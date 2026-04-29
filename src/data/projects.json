@@ -2,107 +2,222 @@
   "categories": [
     {
       "id": "web",
-      "label": "Web Design",
+      "label": "Commercial Project",
       "description": "網頁視覺設計"
+    },
+    {
+      "id": "graphic",
+      "label": "Graphic and digital design.",
+      "description": "視覺設計"
     }
   ],
   "projects": [
     {
-      "id": "sake-union",
+      "id": "zero-to-one",
       "category": "web",
-      "title": "Sake Union × Marie Claire Taiwan 城市清酒祭",
-      "titleEn": "Sake Union × Marie Claire Taiwan City Sake Festival",
-      "year": "2026",
+      "title": "ZERO TO ONE 年度永續企劃專案設計",
+      "titleEn": "Marie Claire 2026 Annual Sustainability Project",
+      "year": "2026/4",
       "type": "Web Design / RWD",
-      "role": "RWD 視覺設計、Design System 建構",
-      "client": "Marie Claire Taiwan",
-      "coverImage": "/images/sake-union-cover.jpg",
-      "tags": ["Web Design", "RWD", "Design System", "Brand"],
-      "summary": "為 Marie Claire Taiwan 與 Sake Union 合作的城市清酒祭打造品牌活動頁，以內容體驗為核心，讓讀者在短暫停留中感受清酒文化。",
+      "role": "RWD 視覺設計、Design System 建構、Figma 元件設計、品牌標誌設計",
+      "client": "marie claire Taiwan",
+      "coverImage": "/images/zero-to-one-cover.jpg",
+      "liveUrl": "https://events.marieclaire.com.tw/2025/pinkrun/index.html",
+      "tags": [
+        "Web Design",
+        "RWD",
+        "Design System",
+        "Brand Campaign"
+      ],
+      "summary": "為《美麗佳人》永續企劃專案設計，透過直覺互動帶領讀者探索物品背後的永續故事。將抽象議題化為具啟發性的感官歷程，實踐「Start from Zero」的行動美學。",
       "detail": {
         "metadata": {
-          "year": "2026 / 03",
+          "year": "2026/4",
           "projectType": "真實專案",
-          "role": "RWD 視覺設計（Desktop 1920px / Mobile 393px）、Design System 建構（Typography、Spacing、Radius、Component）、圖像素材處理與版面合成",
-          "client": "Marie Claire Taiwan",
+          "role": "RWD 視覺設計（Desktop 1920px / Mobile 393px）、Design System 建構（Typography、Spacing、Radius、Color Token、Component）、Figma 元件設計與頁面模組化管理、品牌標誌設計",
+          "client": "marie claire Taiwan",
           "duration": ""
         },
-        "overview": "Marie Claire Taiwan 與 Sake Union 合作，為城市清酒祭打造品牌活動頁，涵蓋購票資訊、參展品牌、清酒教育內容與 AI 風味測驗，發布於 marieclaire.com.tw。在 Marie Claire 的媒體語境中，這個活動頁的角色更接近「品牌內容入口」——透過清酒知識、風味分類、AI 互動測驗，讓讀者在離開頁面前對清酒建立初步認識，品牌好感先於購票決策。",
-        "background": "目標客群為 25–40 歲都會女性，習慣透過社群進入媒體內容，手機瀏覽為主。對飲食文化有好奇心，但未必有清酒背景知識——設計需要降低「不懂就不去」的心理門檻，讓內容本身成為參與動機。",
-        "process": [
-          {
-            "phase": "RWD 視覺設計",
-            "description": "Desktop 1920px / Mobile 393px 雙版本視覺設計，考量流量多從社群導入，手機版優先規劃。"
-          },
-          {
-            "phase": "Design System 建構",
-            "description": "建立 Typography、Spacing、Radius、Component 規範，確保多頁面設計的視覺一致性。"
-          },
-          {
-            "phase": "多頁面設計",
-            "description": "涵蓋活動主頁、清酒知識頁、酒單、編輯報導等多個頁面的設計與圖像素材處理與版面合成。"
-          }
-        ],
+        "overview": "marie claire 台灣編輯部每年推出年度企劃「ZERO TO ONE」，整合時尚、品牌合作與 SDGs 議題報導，在官方網站上以長滾動頁面的形式對外發布。本次設計涵蓋多品牌模組（Nike、PINKOI、L'AME 等）及互動遊戲區塊「START FROM ZERO +」，為年度流量最高的專題頁之一。",
+        "overviewSubtitle": "",
+        "background": "目標客群為 25–38 歲都會女性讀者，關注時尚、永續生活與品味選物，習慣透過社群動態進入媒體內容，以手機瀏覽為主，滑動節奏快、視覺敏感度高。核心目標是讓讀者透過沉浸式的視覺敘事，依序體驗各品牌模組，並引導點擊進入各品牌的深度報導頁或合作活動。",
+        "backgroundSubtitle": "",
+        "process": [],
+        "processSubtitle": "",
         "contentBlocks": [
           {
-            "type": "text",
+            "type": "strategy",
             "heading": "設計策略",
-            "body": "品牌融合：用色彩與排版在媒體版型中建立活動識別，不依賴大量 logo 重複。底色選暖米白（#FFFCF7）呼應清酒米麴意象，讓頁面無需大量品牌標誌也能維持清晰識別。\n\n視覺節奏：深淺色塊交替切換，讓 17,000px 長頁不顯疲乏。全黑英雄區→暖色內容區→深灰互動區，每個色塊都有獨立的敘事重量，確保讀者快速滑動時仍能感受到段落節奏。\n\nMobile First：考量流量多從社群導入，手機版優先規劃；酒單四大風味以卡片式捲動呈現，桌面版則展開為橫向比較格狀版型。"
+            "points": [
+              {
+                "title": "品牌風格融合",
+                "body": "採用中性的自然色系作為頁面底色——沙漠黃、霧面白、海洋藍——讓不同品牌的視覺素材得以各自發聲，而不被過度強烈的媒體 VI 蓋過。白色立體球體作為貫穿全頁的視覺錨點，提供統一的品牌識別感，同時隱喻「從零到一」的生成與轉化。"
+              },
+              {
+                "title": "視覺動線與節奏",
+                "body": "頁面共分為七個主要區塊，Hero 以大面積自然景觀圖（沙漠、青山）製造入場震撼；中段的品牌模組採用編輯雜誌的版式邏輯；末段的遊戲互動區「START FROM ZERO +」切換為深色系，以強烈的明暗對比製造頁面節奏的重啟感，避免長頁面的閱讀疲勞。"
+              }
+            ]
           },
           {
             "type": "text",
             "heading": "執行亮點",
+            "subtitle": "",
+            "body": "Liquid Glass 是本次設計中主動引入的視覺技術嘗試。以半透明毛玻璃折射效果處理部分品牌區塊的卡片介面層，讓 UI 元素與底圖素材之間保留視覺穿透感，而非以實色區塊硬切割畫面。頁面大量使用自然景觀攝影（沙漠、晨霧、海洋）作為背景，Liquid Glass 的通透材質恰好呼應了這些意象中固有的流動與光感。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake-union",
+      "category": "web",
+      "title": "LA TABLE 清酒品味學專案設計",
+      "titleEn": "Marie Claire x Sake Union",
+      "year": "2026",
+      "type": "Web Design / RWD",
+      "role": "RWD 視覺設計、Design System 建構、品牌標誌設計",
+      "client": "Marie Claire Taiwan",
+      "coverImage": "/images/sake-union-cover.jpg",
+      "liveUrl": "https://events.marieclaire.com.tw/2025/pinkrun/index.html",
+      "tags": [
+        "Web Design",
+        "RWD",
+        "Design System",
+        "Brand"
+      ],
+      "summary": "整合專業釀造知識與互動式風味推薦，將複雜的選酒邏輯轉化為直覺的數位旅程，提升品牌與讀者間的互動深度。",
+      "detail": {
+        "metadata": {
+          "year": "2026 / 03",
+          "projectType": "真實專案",
+          "role": "RWD 視覺設計（Desktop 1920px / Mobile 393px）、Design System 建構（Typography、Spacing、Radius、Component）、圖像素材處理與版面合成、品牌標誌設計（具備長效延續性與跨載體應用能力的系列活動視覺標誌）",
+          "client": "Marie Claire Taiwan",
+          "duration": ""
+        },
+        "overview": "Marie Claire Taiwan 與 Sake Union 合作，為城市清酒祭打造品牌活動頁，涵蓋購票資訊、參展品牌、清酒教育內容與 AI 風味測驗，發布於 marieclaire.com.tw。在 Marie Claire 的媒體語境中，這個活動頁的角色更接近「品牌內容入口」——透過清酒知識、風味分類、AI 互動測驗，讓讀者在離開頁面前對清酒建立初步認識，品牌好感先於購票決策。",
+        "overviewSubtitle": "",
+        "background": "目標客群為 25–40 歲都會女性，習慣透過社群進入媒體內容，手機瀏覽為主。對飲食文化有好奇心，但未必有清酒背景知識——設計需要降低「不懂就不去」的心理門檻，讓內容本身成為參與動機。",
+        "backgroundSubtitle": "",
+        "process": [],
+        "processSubtitle": "",
+        "contentBlocks": [
+          {
+            "type": "strategy",
+            "heading": "設計策略",
+            "points": [
+              {
+                "title": "品牌融合",
+                "body": "用色彩與排版在媒體版型中建立活動識別，不依賴大量 logo 重複。底色選暖米白（#FFFCF7）呼應清酒米麴意象，讓頁面無需大量品牌標誌也能維持清晰識別。"
+              },
+              {
+                "title": "視覺節奏",
+                "body": "深淺色塊交替切換，讓 17,000px 長頁不顯疲乏。全黑英雄區→暖色內容區→深灰互動區，每個色塊都有獨立的敘事重量，確保讀者快速滑動時仍能感受到段落節奏。"
+              },
+              {
+                "title": "Mobile First",
+                "body": "考量流量多從社群導入，手機版優先規劃；酒單四大風味以卡片式捲動呈現，桌面版則展開為橫向比較格狀版型。"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "heading": "執行亮點",
+            "subtitle": "",
             "body": "酒單的四大風味——薫、爽、醇、熟——不只是內容分類，也是視覺語言。每種風味以不同的圖像氣質呈現而非色塊強行區分，讓酒單兼具快速查找的功能性與選酒指南的閱讀感。\n\nAI 釀酒師區塊特意採用比其他內容更深的石板灰背景，在整體暖色頁面中製造「進入另一個空間」的切換感。讓讀者在購票前先透過風味偏好測驗找到自己的清酒類型，將購票猶豫轉化為有個人化結果的互動體驗。"
           }
         ]
       }
     },
     {
-      "id": "zero-to-one",
-      "category": "web",
-      "title": "marie claire × ZERO TO ONE 年度品牌企劃活動頁",
-      "titleEn": "marie claire × ZERO TO ONE Annual Brand Campaign",
-      "year": "2026",
-      "type": "Web Design / RWD",
-      "role": "RWD 視覺設計、Design System 建構、Figma 元件設計",
-      "client": "marie claire Taiwan",
-      "coverImage": "/images/zero-to-one-cover.jpg",
-      "tags": ["Web Design", "RWD", "Design System", "Brand Campaign"],
-      "summary": "為 marie claire 年度企劃「ZERO TO ONE」設計長滾動品牌活動頁，整合多品牌模組（Nike、PINKOI、L'AME）與互動遊戲區塊，以 Liquid Glass 視覺語言建立沉浸式品牌敘事。",
+      "id": "pinkrun",
+      "category": "graphic",
+      "title": "裙襬澎澎 RUN 活動主視覺設計",
+      "titleEn": "Pinkrun Visual Design",
+      "year": "2025",
+      "type": "Graphic Design",
+      "role": "視覺設計",
+      "client": "marie claire Taiwan × Pinkrun",
+      "coverImage": "/images/pinkrun-cover.jpg",
+      "liveUrl": "https://events.marieclaire.com.tw/2025/pinkrun/index.html",
+      "tags": [
+        "Graphic Design",
+        "Visual Identity",
+        "Illustration",
+        "Event Design"
+      ],
+      "summary": "為《美麗佳人》第 11 屆年度公益路跑打造全套活動主視覺，以「1+1 陪伴的力量」為概念，融合插畫風格、品牌識別與多元行銷物料設計。",
       "detail": {
         "metadata": {
-          "year": "2026",
+          "year": "2025",
           "projectType": "真實專案",
-          "role": "RWD 視覺設計（Desktop 1920px / Mobile 393px）、Design System 建構（Typography、Spacing、Radius、Color Token、Component）、Figma 元件設計與頁面模組化管理",
+          "role": "品牌視覺形象建構與全媒介設計執行、實體製作物與空間策展之監製與品管",
+          "client": "marie claire Taiwan × Pinkrun",
+          "duration": ""
+        },
+        "overview": "本專案為《美麗佳人》第 11 屆年度公益路跑量身打造視覺形象。以「1+1 陪伴的力量」為核心概念，將標誌性的「粉紅泡泡」轉化為具動態張力的視覺語彙。設計上運用半透明層次疊加與流線幾何圖形，營造出輕盈、活力的數位氛圍，並將此視覺邏輯延伸至線下實體裝置與賽事週邊，確保品牌體驗在不同載體間的完整性與連貫感。",
+        "overviewSubtitle": "裙襬澎澎 RUN 活動主視覺設計",
+        "background": "",
+        "backgroundSubtitle": "",
+        "process": [],
+        "processSubtitle": "",
+        "contentBlocks": []
+      }
+    },
+    {
+      "id": "banner-design",
+      "category": "graphic",
+      "title": "Banner 視覺設計",
+      "titleEn": "Banner Visual Design",
+      "year": "2025–2026",
+      "type": "Graphic Design / Digital",
+      "role": "視覺設計",
+      "client": "marie claire Taiwan",
+      "coverImage": "/images/banner-design-cover.jpg",
+      "tags": [
+        "Graphic Design",
+        "Banner",
+        "Digital",
+        "Editorial"
+      ],
+      "summary": "為美麗佳人旗下多個頻道打造每期專屬 Banner，以視覺語彙轉化多元主題，建構品牌溫度與知性形象。",
+      "detail": {
+        "metadata": {
+          "year": "2025-2026",
+          "projectType": "真實專案",
+          "role": "視覺設計",
           "client": "marie claire Taiwan",
           "duration": ""
         },
-        "overview": "marie claire 台灣編輯部每年推出年度企劃「ZERO TO ONE」，整合時尚、品牌合作與 SDGs 議題報導，在官方網站上以長滾動頁面的形式對外發布。本次設計涵蓋多品牌模組（Nike、PINKOI、L'AME 等）及互動遊戲區塊「START FROM ZERO +」，為年度流量最高的專題頁之一。",
-        "background": "目標客群為 25–38 歲都會女性讀者，關注時尚、永續生活與品味選物，習慣透過社群動態進入媒體內容，以手機瀏覽為主，滑動節奏快、視覺敏感度高。核心目標是讓讀者透過沉浸式的視覺敘事，依序體驗各品牌模組，並引導點擊進入各品牌的深度報導頁或合作活動。",
-        "process": [
-          {
-            "phase": "RWD 視覺設計",
-            "description": "Desktop 1920px / Mobile 393px 雙版本設計，七個主要區塊在視覺重量與節奏上刻意做出差異化處理。"
-          },
-          {
-            "phase": "Design System 建構",
-            "description": "建立 Typography、Spacing、Radius、Color Token、Component 完整規範，支援多品牌模組的視覺管理。"
-          },
-          {
-            "phase": "Figma 元件設計",
-            "description": "頁面模組化管理，確保各品牌區塊的快速迭代與設計一致性。"
-          }
-        ],
+        "overview": "",
+        "overviewSubtitle": "",
+        "background": "",
+        "backgroundSubtitle": "",
+        "process": [],
+        "processSubtitle": "",
         "contentBlocks": [
           {
             "type": "text",
-            "heading": "設計策略",
-            "body": "品牌風格融合（Brand Integration）：採用中性的自然色系作為頁面底色——沙漠黃、霧面白、海洋藍——讓不同品牌的視覺素材得以各自發聲，而不被過度強烈的媒體 VI 蓋過。白色立體球體作為貫穿全頁的視覺錨點，提供統一的品牌識別感，同時隱喻「從零到一」的生成與轉化。\n\n視覺動線與節奏（Visual Hierarchy）：頁面共分為七個主要區塊，Hero 以大面積自然景觀圖（沙漠、青山）製造入場震撼；中段的品牌模組採用編輯雜誌的版式邏輯；末段的遊戲互動區「START FROM ZERO +」切換為深色系，以強烈的明暗對比製造頁面節奏的重啟感，避免長頁面的閱讀疲勞。"
+            "heading": "專案概述",
+            "subtitle": "Shopping 頻道",
+            "body": "「美麗佳人 Shopping 頻道」是以策展為核心的風格導覽平台，深度整合時尚趨勢、居家品味與永續生活，致力於將購物昇華為充滿儀式感的生活探索。平台每月因應不同主題進行深度策展，我負責為每期專題打造專屬 Banner，在傳遞資訊的同時，也構築出品牌充滿溫度且知性的視覺形象。",
+            "large": true
+          },
+          {
+            "type": "gallery",
+            "heading": "視覺延展",
+            "placeholder": true
           },
           {
             "type": "text",
-            "heading": "執行亮點",
-            "body": "Liquid Glass 是本次設計中主動引入的視覺技術嘗試。以半透明毛玻璃折射效果處理部分品牌區塊的卡片介面層，讓 UI 元素與底圖素材之間保留視覺穿透感，而非以實色區塊硬切割畫面。頁面大量使用自然景觀攝影（沙漠、晨霧、海洋）作為背景，Liquid Glass 的通透材質恰好呼應了這些意象中固有的流動與光感。\n\n圖像素材的合成處理是本案視覺成敗的關鍵。SDGs 區塊改以插畫風格的彩色圖像切換氛圍，與時尚品牌模組的清冷攝影形成有意為之的對比，暗示主題從「個人品味」擴展至「社會責任」的敘事轉折。"
+            "heading": "專案概述",
+            "subtitle": "風格學院",
+            "body": "「美麗佳人風格學院」是以生活美學與心靈成長為核心的學習平台，傳遞 \"Think Smart, Look Amazing\" 的品牌精神。平台定期集結各領域大師，開設涵蓋內在情緒、職人料理與日常藝術的深度課程。在參與設計的過程中，我透過視覺語彙轉化專業知識，為每期多元的主題打造專屬 Banner，協助現代人在探索專業技能與內在修為時，能從視覺出發，感受全方位的豐盈生活姿態。",
+            "large": true
+          },
+          {
+            "type": "gallery",
+            "heading": "視覺延展",
+            "placeholder": true
           }
         ]
       }

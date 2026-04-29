@@ -19,7 +19,7 @@ html {
 
 body {
   font-family: var(--font-sans-zh);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--neutral-900);
   background-color: var(--neutral-0);
   line-height: 1.8;
@@ -91,14 +91,14 @@ button {
 
 .text-body {
   font-family: var(--font-sans-zh);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1.8;
 }
 
 .text-small {
   font-family: var(--font-sans-zh);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--neutral-600);
@@ -106,7 +106,7 @@ button {
 
 .text-caption {
   font-family: var(--font-sans-zh);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.5;
   color: var(--neutral-600);

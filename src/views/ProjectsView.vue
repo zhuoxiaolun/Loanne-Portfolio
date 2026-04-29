@@ -40,21 +40,22 @@ function projectsByCategory(categoryId: string): Project[] {
   padding-bottom: var(--spacing-6xl);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-5xl);
+  gap: 160px;
 }
 
 .projects-page__category-title {
   font-family: var(--font-serif-en);
   font-weight: 600;
   font-style: italic;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
   color: var(--neutral-900);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-4xl);
+  line-height: 1.1;
 }
 
 .projects-page__list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3xl);
+  gap: 76px;
 }
 </style>

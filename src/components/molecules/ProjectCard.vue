@@ -1,10 +1,6 @@
 <template>
-  <RouterLink
-    :to="`/projects/${project.id}`"
-    class="project-card"
-    :class="[`project-card--${variant}`]"
-  >
-    <div class="project-card__image-wrap">
+  <article class="project-card" :class="[`project-card--${variant}`]">
+    <RouterLink :to="`/projects/${project.id}`" class="project-card__image-wrap">
       <img
         :src="project.coverImage"
         :alt="project.title"
@@ -12,13 +8,33 @@
         class="project-card__image"
         @error="onImgError"
       />
-    </div>
+    </RouterLink>
 
     <div class="project-card__body">
-      <h3 class="project-card__title">{{ project.title }}</h3>
+      <div class="project-card__title-row">
+        <RouterLink :to="`/projects/${project.id}`" class="project-card__title-link">
+          <h3 class="project-card__title">{{ project.title }}</h3>
+        </RouterLink>
+        <a
+          v-if="project.liveUrl"
+          :href="project.liveUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-card__live-btn"
+          :aria-label="`查看 ${project.title} 真實專案`"
+        >
+          View Live
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 3h6v6"/>
+            <path d="M10 14 21 3"/>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          </svg>
+
+        </a>
+      </div>
       <p class="project-card__summary text-small">{{ project.summary }}</p>
     </div>
-  </RouterLink>
+  </article>
 </template>
 
 <script setup lang="ts">
@@ -42,15 +58,56 @@ function onImgError(e: Event) {
 .project-card {
   display: flex;
   flex-direction: column;
+}
+
+/* ─── Title row ─────────────────────────────────────── */
+.project-card__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.project-card__title-link {
+  flex: 1;
+  min-width: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Live button */
+.project-card__live-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 20px;
+  border-radius: var(--radius-round);
+  border: 1.5px solid var(--lake-blue-500);
+  background: transparent;
+  color: var(--lake-blue-600);
+  font-family: var(--font-sans-zh);
+  font-size: 0.8125rem;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+  margin-top: 8px;
+}
+
+.project-card__live-btn:hover {
+  background: var(--lake-blue-600);
+  border-color: var(--lake-blue-600);
+  color: var(--neutral-0);
 }
 
 /* Banner variant (home + projects pages) */
 .project-card--banner .project-card__image-wrap {
-  aspect-ratio: 16 / 9;
+  display: block;
+  aspect-ratio: 5 / 2;
   overflow: hidden;
-  border-radius: var(--radius-l);
+  border-radius: var(--radius-m);
   background: var(--neutral-100);
   transition: box-shadow var(--transition-base);
 }
@@ -81,12 +138,15 @@ function onImgError(e: Event) {
 .project-card--banner .project-card__title {
   font-family: var(--font-sans-zh);
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: clamp(1.375rem, 2.2vw, 2rem);
   color: var(--neutral-900);
+  line-height: 1.35;
 }
 
 .project-card--banner .project-card__summary {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   color: var(--neutral-600);
+  line-height: 1.7;
 }
 
 /* Grid variant (projects page categories) */
@@ -96,6 +156,7 @@ function onImgError(e: Event) {
   border-radius: var(--radius-l);
   overflow: hidden;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  cursor: pointer;
 }
 
 .project-card--grid:hover {
@@ -105,6 +166,7 @@ function onImgError(e: Event) {
 }
 
 .project-card--grid .project-card__image-wrap {
+  display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--rose-200);

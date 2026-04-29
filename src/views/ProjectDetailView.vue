@@ -1,57 +1,144 @@
 <template>
   <main v-if="project" class="project-detail">
 
-    <!-- Header -->
-    <div class="project-detail__header">
-      <div class="project-detail__header-bg" aria-hidden="true" />
-      <div class="container project-detail__header-inner">
-        <RouterLink to="/projects" class="project-detail__back">
-          ← 返回作品集
-        </RouterLink>
+    <!-- Back link -->
+    <div class="container project-detail__breadcrumb">
+      <RouterLink to="/projects" class="project-detail__back">
+        <span class="project-detail__back-arrow">←</span>
+        Back
+      </RouterLink>
+    </div>
 
-        <!-- Horizontal meta pills -->
-        <div class="project-detail__meta-pills">
-          <span class="meta-pill">年度：{{ project.detail.metadata.year }}</span>
-          <span class="meta-pill">類型：{{ project.detail.metadata.projectType }}</span>
-          <span class="meta-pill">職責：{{ project.detail.metadata.role }}</span>
-          <span class="meta-pill">客戶：{{ project.detail.metadata.client }}</span>
-          <span class="meta-pill">時程：{{ project.detail.metadata.duration }}</span>
+    <!-- Hero -->
+    <div class="project-detail__hero">
+      <div class="container project-detail__hero-inner">
+        <div class="project-detail__title-row">
+          <h1 class="project-detail__title">{{ project.title }}</h1>
+          <a
+            v-if="project.liveUrl"
+            :href="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-detail__live-btn"
+            :aria-label="`查看 ${project.title} 真實專案`"
+          >
+            View Live
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 3h6v6"/>
+              <path d="M10 14 21 3"/>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            </svg>
+          </a>
         </div>
-
-        <h1 class="project-detail__title text-h1">{{ project.title }}</h1>
         <p class="project-detail__title-en">{{ project.titleEn }}</p>
-        <p class="project-detail__summary text-body">{{ project.summary }}</p>
+        <p class="project-detail__summary">{{ project.summary }}</p>
+      </div>
+      <!-- Banner-design uses a static hero image -->
+      <div v-if="project.id === 'banner-design'" class="project-detail__cover">
+        <img :src="bannerMainImg" alt="Banner 視覺設計" class="project-detail__hero-img" />
+      </div>
+      <div v-else-if="project.id === 'sake-union'" class="project-detail__cover">
+        <img :src="sakeHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
+      <div v-else-if="project.id === 'zero-to-one'" class="project-detail__cover">
+        <img :src="zeroHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
+      <div v-else-if="project.id === 'pinkrun'" class="project-detail__cover">
+        <img :src="pinkHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
+      <div v-else class="project-detail__cover">
+        <AppImage
+          :src="project.coverImage"
+          :alt="project.title"
+          :lazy="false"
+        />
       </div>
     </div>
 
-    <!-- Cover image -->
-    <div class="container project-detail__cover">
-      <AppImage
-        :src="project.coverImage"
-        :alt="project.title"
-        :lazy="false"
-      />
+    <!-- Metadata row + tags -->
+    <div class="container project-detail__meta-row">
+      <div class="project-detail__meta-pills">
+        <span class="meta-pill">
+          <span class="meta-pill__label">年度</span>
+          <span class="meta-pill__value">{{ project.detail.metadata.year }}</span>
+        </span>
+        <span class="meta-pill__divider" aria-hidden="true" />
+        <span class="meta-pill">
+          <span class="meta-pill__label">類型</span>
+          <span class="meta-pill__value">{{ project.detail.metadata.projectType }}</span>
+        </span>
+        <span class="meta-pill__divider" aria-hidden="true" />
+        <span class="meta-pill">
+          <span class="meta-pill__label">職責</span>
+          <span class="meta-pill__value">{{ project.detail.metadata.role }}</span>
+        </span>
+        <template v-if="project.detail.metadata.duration">
+          <span class="meta-pill__divider" aria-hidden="true" />
+          <span class="meta-pill">
+            <span class="meta-pill__label">時程</span>
+            <span class="meta-pill__value">{{ project.detail.metadata.duration }}</span>
+          </span>
+        </template>
+      </div>
+
+      <div v-if="project.tags?.length" class="project-detail__tags">
+        <span
+          v-for="tag in project.tags"
+          :key="tag"
+          class="project-detail__tag"
+        >{{ tag }}</span>
+      </div>
     </div>
 
-    <!-- Single-column article -->
-    <div class="container project-detail__content">
+    <!-- Star divider -->
+    <div class="container project-detail__star-divider" aria-hidden="true">
+      <span class="star-divider__line" />
+      <span class="star-divider__star">✦</span>
+      <span class="star-divider__line" />
+    </div>
+
+    <!-- Banner-design: specialized content with real image galleries -->
+    <div v-if="project.id === 'banner-design'" class="container project-detail__content">
+      <BannerDesignDetail />
+    </div>
+
+    <!-- Sake-union: specialized content with image galleries -->
+    <div v-else-if="project.id === 'sake-union'" class="container project-detail__content">
+      <SakeUnionDetail :project="project" />
+    </div>
+
+    <!-- Zero-to-one: specialized content with image galleries -->
+    <div v-else-if="project.id === 'zero-to-one'" class="container project-detail__content">
+      <ZeroToOneDetail :project="project" />
+    </div>
+
+    <!-- Pinkrun: specialized content with image galleries -->
+    <div v-else-if="project.id === 'pinkrun'" class="container project-detail__content">
+      <PinkrunDetail :project="project" />
+    </div>
+
+    <!-- Single-column article (all other projects) -->
+    <div v-else class="container project-detail__content">
       <article class="project-detail__article">
 
         <!-- Overview -->
-        <section class="article-section">
-          <h2 class="section-label">專案概述</h2>
-          <p class="text-body">{{ project.detail.overview }}</p>
+        <section v-if="project.detail.overview" class="article-section">
+          <p class="section-label">專案概述</p>
+          <h2 v-if="project.detail.overviewSubtitle" class="section-subtitle">{{ project.detail.overviewSubtitle }}</h2>
+          <p class="section-body">{{ project.detail.overview }}</p>
         </section>
 
         <!-- Background -->
-        <section class="article-section">
-          <h2 class="section-label">專案背景</h2>
-          <p class="text-body">{{ project.detail.background }}</p>
+        <section v-if="project.detail.background" class="article-section">
+          <p class="section-label">專案背景</p>
+          <h2 v-if="project.detail.backgroundSubtitle" class="section-subtitle">{{ project.detail.backgroundSubtitle }}</h2>
+          <p class="section-body">{{ project.detail.background }}</p>
         </section>
 
         <!-- Process phases -->
         <section v-if="project.detail.process.length" class="article-section">
-          <h2 class="section-label">設計流程</h2>
+          <p class="section-label">設計流程</p>
+          <h2 v-if="project.detail.processSubtitle" class="section-subtitle">{{ project.detail.processSubtitle }}</h2>
           <ol class="process-grid">
             <li
               v-for="(phase, i) in project.detail.process"
@@ -81,7 +168,7 @@
           <p class="project-detail__quote-text">
             「{{ project.detail.founderFeedback.quote }}」
           </p>
-          <footer class="project-detail__quote-author text-small">
+          <footer class="project-detail__quote-author">
             — {{ project.detail.founderFeedback.author }}
           </footer>
         </blockquote>
@@ -106,7 +193,7 @@
 
   <!-- Not found -->
   <main v-else class="container" style="padding-top: 160px; padding-bottom: 80px;">
-    <p class="text-body">找不到此專案。</p>
+    <p class="section-body">找不到此專案。</p>
     <AppButton variant="primary" to="/projects" style="margin-top: 24px;">返回作品集</AppButton>
   </main>
 </template>
@@ -117,6 +204,14 @@ import { useRoute } from 'vue-router'
 import AppImage from '@/components/atoms/AppImage.vue'
 import AppButton from '@/components/atoms/AppButton.vue'
 import ContentBlock from '@/components/molecules/ContentBlock.vue'
+import BannerDesignDetail from '@/components/organisms/BannerDesignDetail.vue'
+import SakeUnionDetail from '@/components/organisms/SakeUnionDetail.vue'
+import ZeroToOneDetail from '@/components/organisms/ZeroToOneDetail.vue'
+import PinkrunDetail from '@/components/organisms/PinkrunDetail.vue'
+import { sakeHeroImage, sakeCoverImage } from '@/data/sake-images'
+import { zeroHeroImage } from '@/data/zero-images'
+import { pinkHeroImage } from '@/data/pink-images'
+import bannerMainImg from '@/assets/banner main.png'
 import homeData from '@/data/home.json'
 import projectsData from '@/data/projects.json'
 import type { Project } from '@/types'
@@ -145,87 +240,206 @@ const nextProject = computed(() =>
 </script>
 
 <style scoped>
-/* ─── Header ─────────────────────────────────────────── */
-.project-detail__header {
-  position: relative;
-  overflow: hidden;
-  padding-top: calc(80px + var(--spacing-3xl));
-  padding-bottom: var(--spacing-4xl);
-}
-
-.project-detail__header-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, var(--rose-100) 0%, var(--neutral-0) 100%);
-}
-
-.project-detail__header-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-m);
-  max-width: 760px;
+/* ─── Breadcrumb / Back ──────────────────────────────── */
+.project-detail__breadcrumb {
+  padding-top: calc(80px + var(--spacing-l));
+  padding-bottom: var(--spacing-m);
 }
 
 .project-detail__back {
-  color: var(--neutral-500);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--neutral-600);
   text-decoration: none;
-  font-size: 0.875rem;
-  font-family: var(--font-sans-zh);
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   transition: color var(--transition-base);
-  align-self: flex-start;
 }
 
 .project-detail__back:hover {
   color: var(--cherry-600);
 }
 
-/* ─── Meta pills ─────────────────────────────────────── */
-.project-detail__meta-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
+.project-detail__back-arrow {
+  font-style: normal;
+  transition: transform var(--transition-base);
 }
 
-.meta-pill {
+.project-detail__back:hover .project-detail__back-arrow {
+  transform: translateX(-4px);
+}
+
+/* ─── Hero ───────────────────────────────────────────── */
+.project-detail__hero {
+  padding-bottom: var(--spacing-3xl);
+}
+
+.project-detail__hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.project-detail__title-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
+}
+
+.project-detail__title {
+  font-family: var(--font-sans-zh);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.project-detail__live-btn {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
+  gap: 7px;
+  padding: 10px 28px;
   border-radius: var(--radius-round);
-  background: var(--neutral-0);
-  border: 1px solid var(--neutral-100);
+  border: 1.5px solid var(--lake-blue-500);
+  background: transparent;
+  color: var(--lake-blue-600);
   font-family: var(--font-sans-zh);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--neutral-600);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
   white-space: nowrap;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+  margin-bottom: 6px;
 }
 
-/* ─── Title / summary ────────────────────────────────── */
-.project-detail__title {
-  color: var(--neutral-900);
-  margin-top: var(--spacing-xs);
+.project-detail__live-btn:hover {
+  background: var(--lake-blue-600);
+  border-color: var(--lake-blue-600);
+  color: var(--neutral-0);
 }
 
 .project-detail__title-en {
   font-family: var(--font-serif-en);
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  color: var(--neutral-700);
-  line-height: 1.2;
+  font-size: clamp(1.125rem, 2vw, 1.625rem);
+  color: var(--neutral-500);
+  line-height: 1.3;
+  margin: 0;
 }
 
 .project-detail__summary {
+  font-family: var(--font-sans-zh);
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--neutral-700);
+  line-height: 1.8;
+  margin: 0;
 }
 
 /* ─── Cover image ────────────────────────────────────── */
 .project-detail__cover {
-  margin-bottom: var(--spacing-4xl);
+  width: 100%;
 }
 
-/* ─── Article (single column) ────────────────────────── */
+.project-detail__hero-img {
+  width: 100%;
+  height: 567px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Metadata row ───────────────────────────────────── */
+.project-detail__meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-l);
+}
+
+.project-detail__meta-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
+}
+
+.meta-pill__label {
+  font-weight: 400;
+  color: var(--neutral-500);
+  white-space: nowrap;
+  min-width: 2em;
+  flex-shrink: 0;
+}
+
+.meta-pill__value {
+  font-weight: 600;
+  color: var(--neutral-800);
+  line-height: 1.6;
+}
+
+.meta-pill__divider {
+  display: none;
+}
+
+/* ─── Tags ───────────────────────────────────────────── */
+.project-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.project-detail__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-xxs);
+  background: var(--cherry-100);
+  color: var(--cherry-700);
+  font-family: var(--font-sans-zh);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* ─── Star divider ───────────────────────────────────── */
+.project-detail__star-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+  padding-top: var(--spacing-l);
+  padding-bottom: var(--spacing-4xl);
+}
+
+.star-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--neutral-100);
+}
+
+.star-divider__star {
+  font-size: 0.875rem;
+  color: var(--neutral-300);
+  flex-shrink: 0;
+}
+
+/* ─── Article ────────────────────────────────────────── */
 .project-detail__content {
   padding-bottom: var(--spacing-6xl);
 }
@@ -233,7 +447,7 @@ const nextProject = computed(() =>
 .project-detail__article {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4xl);
+  gap: var(--spacing-5xl);
 }
 
 .article-section {
@@ -242,13 +456,32 @@ const nextProject = computed(() =>
   gap: var(--spacing-m);
 }
 
+/* ─── Section typography ─────────────────────────────── */
 .section-label {
   font-family: var(--font-sans-zh);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--neutral-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans-zh);
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--neutral-400);
+  color: var(--neutral-900);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.section-body {
+  font-family: var(--font-sans-zh);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--neutral-700);
+  line-height: 1.85;
+  margin: 0;
 }
 
 /* ─── Process grid ───────────────────────────────────── */
@@ -258,6 +491,8 @@ const nextProject = computed(() =>
   gap: var(--spacing-l);
   list-style: none;
   padding: 0;
+  margin: 0;
+  max-width: 100%;
 }
 
 .process-item {
@@ -272,7 +507,7 @@ const nextProject = computed(() =>
 
 .process-num {
   font-family: var(--font-serif-en);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--cherry-500);
   line-height: 1;
@@ -290,6 +525,7 @@ const nextProject = computed(() =>
   font-size: 0.875rem;
   color: var(--neutral-600);
   line-height: 1.7;
+  margin: 0;
 }
 
 /* ─── Quote ──────────────────────────────────────────── */
@@ -301,6 +537,7 @@ const nextProject = computed(() =>
   display: flex;
   flex-direction: column;
   gap: var(--spacing-s);
+  margin: 0;
 }
 
 .project-detail__quote-text {
@@ -310,10 +547,13 @@ const nextProject = computed(() =>
   color: var(--neutral-800);
   line-height: 1.8;
   font-style: italic;
+  margin: 0;
 }
 
 .project-detail__quote-author {
   color: var(--lake-blue-600);
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -342,6 +582,16 @@ const nextProject = computed(() =>
     flex-direction: column;
     gap: var(--spacing-m);
     align-items: flex-start;
+  }
+
+  .project-detail__adjacent {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    width: 100%;
+  }
+
+  .meta-pill__divider {
+    display: none;
   }
 }
 </style>

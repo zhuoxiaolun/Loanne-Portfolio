@@ -6,12 +6,14 @@ export interface ProjectMeta {
   duration: string
 }
 
-export type ContentBlockType = 'text' | 'image'
+export type ContentBlockType = 'text' | 'image' | 'gallery' | 'strategy'
 
 export interface ContentBlockText {
   type: 'text'
   heading?: string
+  subtitle?: string
   body: string
+  large?: boolean
 }
 
 export interface ContentBlockImage {
@@ -21,7 +23,25 @@ export interface ContentBlockImage {
   caption?: string
 }
 
-export type ContentBlock = ContentBlockText | ContentBlockImage
+export interface ContentBlockGallery {
+  type: 'gallery'
+  heading?: string
+  images?: string[]
+  placeholder?: boolean
+}
+
+export interface StrategyPoint {
+  title: string
+  body: string
+}
+
+export interface ContentBlockStrategy {
+  type: 'strategy'
+  heading?: string
+  points: StrategyPoint[]
+}
+
+export type ContentBlock = ContentBlockText | ContentBlockImage | ContentBlockGallery | ContentBlockStrategy
 
 export interface ProcessPhase {
   phase: string
@@ -36,8 +56,11 @@ export interface FounderFeedback {
 export interface ProjectDetail {
   metadata: ProjectMeta
   overview: string
+  overviewSubtitle?: string
   background: string
+  backgroundSubtitle?: string
   process: ProcessPhase[]
+  processSubtitle?: string
   contentBlocks: ContentBlock[]
   founderFeedback?: FounderFeedback
 }
@@ -54,6 +77,7 @@ export interface Project {
   coverImage: string
   tags: string[]
   summary: string
+  liveUrl?: string
   detail: ProjectDetail
 }
 

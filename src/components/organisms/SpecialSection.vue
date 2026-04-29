@@ -38,7 +38,8 @@ const titleChars = computed(() => props.data.title.split(''))
 .special__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--cherry-50) 0%, var(--lake-blue-50) 100%);
+  /* Very subtle left-edge cherry whisper — no hard block */
+  background: linear-gradient(90deg, rgba(252, 230, 235, 0.18) 0%, transparent 50%);
 }
 
 .special__inner {

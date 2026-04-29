@@ -1,12 +1,11 @@
 <template>
-  <main>
+  <main class="home">
     <HeroSection :data="home.hero" />
 
     <section class="section">
-      <ProjectGrid
-        :projects="featuredProjects"
-      />
+      <ProjectGrid :projects="featuredProjects" />
     </section>
+
   </main>
 </template>
 
