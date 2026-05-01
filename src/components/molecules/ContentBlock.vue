@@ -36,6 +36,25 @@
       </div>
     </template>
 
+    <!-- Table block -->
+    <template v-else-if="block.type === 'table'">
+      <p v-if="block.heading" class="section-label">{{ block.heading }}</p>
+      <div class="content-block__table-wrap">
+        <table class="content-block__table">
+          <thead>
+            <tr>
+              <th v-for="col in block.columns" :key="col">{{ col }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, ri) in block.rows" :key="ri">
+              <td v-for="(cell, ci) in row" :key="ci">{{ cell }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+
     <!-- Strategy block -->
     <template v-else-if="block.type === 'strategy'">
       <p v-if="block.heading" class="section-label">{{ block.heading }}</p>
@@ -65,12 +84,37 @@ const props = defineProps<{
 
 const formattedBody = computed(() => {
   if (props.block.type !== 'text') return ''
-  return props.block.body
+
+  const lines = props.block.body
     .split('\n')
     .map(line => line.trim())
     .filter(Boolean)
-    .map(line => `<p>${line}</p>`)
-    .join('')
+
+  const parts: string[] = []
+  let i = 0
+
+  while (i < lines.length) {
+    if (lines[i].startsWith('•')) {
+      const items: string[] = []
+      while (i < lines.length && lines[i].startsWith('•')) {
+        items.push(`<li>${lines[i].slice(1).trim()}</li>`)
+        i++
+      }
+      parts.push(`<ul>${items.join('')}</ul>`)
+    } else if (/^\d+\.\s/.test(lines[i])) {
+      const items: string[] = []
+      while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
+        items.push(`<li>${lines[i].replace(/^\d+\.\s/, '').trim()}</li>`)
+        i++
+      }
+      parts.push(`<ol>${items.join('')}</ol>`)
+    } else {
+      parts.push(`<p>${lines[i]}</p>`)
+      i++
+    }
+  }
+
+  return parts.join('')
 })
 </script>
 
@@ -123,6 +167,44 @@ const formattedBody = computed(() => {
   margin-bottom: 0;
 }
 
+.content-block__body :deep(ul),
+.content-block__body :deep(ol) {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  counter-reset: ol-counter;
+}
+
+.content-block__body :deep(ul:last-child),
+.content-block__body :deep(ol:last-child) {
+  margin-bottom: 0;
+}
+
+.content-block__body :deep(ul > li) {
+  line-height: 1.85;
+}
+
+.content-block__body :deep(ol > li) {
+  padding-left: 1.5em;
+  position: relative;
+  line-height: 1.85;
+}
+
+.content-block__body :deep(ol > li) {
+  counter-increment: ol-counter;
+}
+
+.content-block__body :deep(ol > li)::before {
+  content: counter(ol-counter);
+  position: absolute;
+  left: 0;
+  color: var(--neutral-500);
+  font-variant-numeric: tabular-nums;
+}
+
 /* Large text variant (editorial) */
 .content-block--large .section-subtitle {
   font-size: clamp(1.75rem, 3vw, 2.75rem);
@@ -166,6 +248,62 @@ const formattedBody = computed(() => {
   aspect-ratio: 16 / 7;
   background: var(--neutral-100);
   border-radius: var(--radius-m);
+}
+
+/* ─── Table block ────────────────────────────────────── */
+.content-block--table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.content-block__table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--neutral-100);
+}
+
+.content-block__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans-zh);
+  font-size: 0.9375rem;
+  color: var(--neutral-700);
+}
+
+.content-block__table thead tr {
+  background: var(--cherry-50);
+}
+
+.content-block__table th {
+  padding: var(--spacing-s) var(--spacing-m);
+  text-align: left;
+  font-weight: 700;
+  color: var(--neutral-900);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+.content-block__table td {
+  padding: var(--spacing-s) var(--spacing-m);
+  border-bottom: 1px solid var(--neutral-100);
+  line-height: 1.7;
+  vertical-align: top;
+}
+
+.content-block__table td:first-child {
+  font-weight: 600;
+  color: var(--neutral-900);
+  white-space: nowrap;
+}
+
+.content-block__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.content-block__table tbody tr:hover {
+  background: var(--neutral-50);
 }
 
 /* ─── Strategy block ─────────────────────────────────── */

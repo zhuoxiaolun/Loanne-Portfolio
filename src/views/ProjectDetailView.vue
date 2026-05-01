@@ -125,14 +125,14 @@
         <section v-if="project.detail.overview" class="article-section">
           <p class="section-label">專案概述</p>
           <h2 v-if="project.detail.overviewSubtitle" class="section-subtitle">{{ project.detail.overviewSubtitle }}</h2>
-          <p class="section-body">{{ project.detail.overview }}</p>
+          <div class="section-body" v-html="formatBody(project.detail.overview)" />
         </section>
 
         <!-- Background -->
         <section v-if="project.detail.background" class="article-section">
           <p class="section-label">專案背景</p>
           <h2 v-if="project.detail.backgroundSubtitle" class="section-subtitle">{{ project.detail.backgroundSubtitle }}</h2>
-          <p class="section-body">{{ project.detail.background }}</p>
+          <div class="section-body" v-html="formatBody(project.detail.background)" />
         </section>
 
         <!-- Process phases -->
@@ -237,6 +237,26 @@ const prevProject = computed(() =>
 const nextProject = computed(() =>
   currentIndex.value < allProjects.length - 1 ? allProjects[currentIndex.value + 1] : null
 )
+
+function formatBody(text: string): string {
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean)
+  const parts: string[] = []
+  let i = 0
+  while (i < lines.length) {
+    if (lines[i].startsWith('•')) {
+      const items: string[] = []
+      while (i < lines.length && lines[i].startsWith('•')) {
+        items.push(`<li>${lines[i].slice(1).trim()}</li>`)
+        i++
+      }
+      parts.push(`<ul>${items.join('')}</ul>`)
+    } else {
+      parts.push(`<p>${lines[i]}</p>`)
+      i++
+    }
+  }
+  return parts.join('')
+}
 </script>
 
 <style scoped>
@@ -482,6 +502,40 @@ const nextProject = computed(() =>
   color: var(--neutral-700);
   line-height: 1.85;
   margin: 0;
+}
+
+.section-body :deep(p) {
+  margin-bottom: var(--spacing-m);
+}
+
+.section-body :deep(p:last-child) {
+  margin-bottom: 0;
+}
+
+.section-body :deep(ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.section-body :deep(ul:last-child) {
+  margin-bottom: 0;
+}
+
+.section-body :deep(li) {
+  padding-left: 1.25em;
+  position: relative;
+  line-height: 1.85;
+}
+
+.section-body :deep(li)::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--neutral-500);
 }
 
 /* ─── Process grid ───────────────────────────────────── */

@@ -6,7 +6,7 @@ export interface ProjectMeta {
   duration: string
 }
 
-export type ContentBlockType = 'text' | 'image' | 'gallery' | 'strategy'
+export type ContentBlockType = 'text' | 'image' | 'gallery' | 'strategy' | 'table'
 
 export interface ContentBlockText {
   type: 'text'
@@ -41,7 +41,14 @@ export interface ContentBlockStrategy {
   points: StrategyPoint[]
 }
 
-export type ContentBlock = ContentBlockText | ContentBlockImage | ContentBlockGallery | ContentBlockStrategy
+export interface ContentBlockTable {
+  type: 'table'
+  heading?: string
+  columns: string[]
+  rows: string[][]
+}
+
+export type ContentBlock = ContentBlockText | ContentBlockImage | ContentBlockGallery | ContentBlockStrategy | ContentBlockTable
 
 export interface ProcessPhase {
   phase: string
