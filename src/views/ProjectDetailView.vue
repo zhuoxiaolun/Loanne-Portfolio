@@ -321,6 +321,7 @@ function formatBody(text: string): string {
   margin: 0;
 }
 
+/* title-row uses align-items: flex-end; this nudges the button off the baseline */
 .project-detail__live-btn {
   margin-bottom: 6px;
 }
