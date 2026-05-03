@@ -15,9 +15,9 @@
   ><slot /></RouterLink>
   <button
     v-else
+    v-bind="$attrs"
     :type="type"
     :class="['app-btn', `app-btn--${variant}`, `app-btn--${size}`, { 'app-btn--full': full }]"
-    v-bind="$attrs"
   ><slot /></button>
 </template>
 
@@ -31,6 +31,7 @@ withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg'
   to?: string
   href?: string
+  /** Only applies when `href` is set. */
   target?: string
   type?: 'button' | 'submit'
   full?: boolean
