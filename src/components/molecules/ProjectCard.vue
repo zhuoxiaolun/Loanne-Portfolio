@@ -15,13 +15,13 @@
         <RouterLink :to="`/projects/${project.id}`" class="project-card__title-link">
           <h3 class="project-card__title">{{ project.title }}</h3>
         </RouterLink>
-        <a
+        <AppButton
           v-if="project.liveUrl"
+          variant="secondary"
+          size="md"
           :href="project.liveUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="project-card__live-btn"
           :aria-label="`查看 ${project.title} 真實專案`"
+          class="project-card__live-btn"
         >
           View Live
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -29,8 +29,7 @@
             <path d="M10 14 21 3"/>
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
           </svg>
-
-        </a>
+        </AppButton>
       </div>
       <p class="project-card__summary text-small">{{ project.summary }}</p>
     </div>
@@ -38,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import AppButton from '@/components/atoms/AppButton.vue'
 import type { Project } from '@/types'
 
 withDefaults(defineProps<{
@@ -75,31 +75,9 @@ function onImgError(e: Event) {
   color: inherit;
 }
 
-/* Live button */
 .project-card__live-btn {
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 20px;
-  border-radius: var(--radius-round);
-  border: 1.5px solid var(--lake-blue-500);
-  background: transparent;
-  color: var(--lake-blue-600);
-  font-family: var(--font-sans-zh);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
-  margin-top: 8px;
-}
-
-.project-card__live-btn:hover {
-  background: var(--lake-blue-600);
-  border-color: var(--lake-blue-600);
-  color: var(--neutral-0);
+  margin-top: var(--spacing-xs);
 }
 
 /* Banner variant (home + projects pages) */
