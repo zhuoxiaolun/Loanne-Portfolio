@@ -12,7 +12,7 @@
           <div class="hero__body">
             <p v-for="(paragraph, i) in data.body" :key="i">{{ paragraph }}</p>
           </div>
-          <AppButton :to="data.ctaLearnMore.to" variant="secondary">
+          <AppButton :to="data.ctaLearnMore.to" variant="secondary" class="hero__cta">
             {{ data.ctaLearnMore.label }}
           </AppButton>
         </div>
@@ -102,6 +102,10 @@ defineProps<{
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.hero__cta {
+  align-self: flex-start;
 }
 
 /* "Hey, it's Loanne, / a UI/UX Designer." */
