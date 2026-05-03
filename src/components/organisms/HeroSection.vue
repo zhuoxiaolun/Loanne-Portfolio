@@ -6,13 +6,15 @@
 
         <div class="hero__content">
           <h1 class="hero__headline">
-            <span class="hero__greeting">Hey, it's </span>{{ data.name }}
+            <span>Hey, it's {{ data.name }},</span>
+            <span>{{ data.titleLine2 }}</span>
           </h1>
-          <p class="hero__tagline">{{ data.tagline }}</p>
-          <div class="hero__ctas">
-            <AppButton :to="data.ctaPrimary.to" variant="primary">{{ data.ctaPrimary.label }}</AppButton>
-            <AppButton :to="data.ctaSecondary.to" variant="secondary">{{ data.ctaSecondary.label }}</AppButton>
+          <div class="hero__body">
+            <p v-for="(paragraph, i) in data.body" :key="i">{{ paragraph }}</p>
           </div>
+          <AppButton :to="data.ctaLearnMore.to" variant="secondary">
+            {{ data.ctaLearnMore.label }}
+          </AppButton>
         </div>
 
         <div class="hero__visual" aria-hidden="true">
@@ -25,16 +27,14 @@
 
 <script setup lang="ts">
 import AppButton from '@/components/atoms/AppButton.vue'
-import avatarImg from '@/assets/03459b8bd87b5c455064a2318070f071889cd7e8.png'
+import avatarImg from '@/assets/adbb7930de62ba6d651de79e802daceec5629fad.png'
 
 defineProps<{
   data: {
-    greeting: string
     name: string
-    titleEn: string
-    tagline: string
-    ctaPrimary: { label: string; to: string }
-    ctaSecondary: { label: string; to: string }
+    titleLine2: string
+    body: string[]
+    ctaLearnMore: { label: string; to: string }
   }
 }>()
 </script>
@@ -53,18 +53,42 @@ defineProps<{
   border-radius: 32px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  min-height: 420px;
-  background: var(--neutral-0);
+  min-height: 480px;
+  background: linear-gradient(
+    135deg,
+    #ccd9ef 0%,
+    #eaf0f9 15%,
+    #ffffff 30%,
+    #faefef 50%,
+    #ffffff 68%,
+    #dce8f4 85%,
+    #ccd9ef 100%
+  );
+  background-size: 280% 280%;
+  animation: heroFlow 12s ease-in-out infinite;
   display: flex;
   align-items: center;
 }
 
-/* Subtle pink gradient overlay on the card */
+/* Grain texture */
+.hero__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px;
+}
+
+/* Glass edge overlay */
 .hero__card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(244, 173, 189, 0.12) 0%, rgba(255, 255, 255, 0.08) 60%);
-  box-shadow: inset -1px 0 6px rgba(255, 255, 255, 0.8), inset 0 0 2px rgba(255, 255, 255, 0.8);
+  box-shadow: inset -1px 0 6px rgba(255, 255, 255, 0.7), inset 0 0 2px rgba(255, 255, 255, 0.7);
   border-radius: inherit;
   pointer-events: none;
 }
@@ -72,62 +96,62 @@ defineProps<{
 /* Left text content */
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 11;
   padding: var(--spacing-4xl) var(--spacing-4xl) var(--spacing-4xl) var(--spacing-5xl);
-  max-width: 58%;
+  max-width: 62%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: 32px;
 }
 
-/* "Hey, it's Loanne" */
+/* "Hey, it's Loanne, / a UI/UX Designer." */
 .hero__headline {
   font-family: var(--font-serif-en);
   font-weight: 600;
   font-style: normal;
   font-size: clamp(2.25rem, 4.5vw, 4rem);
-  line-height: 1.1;
-  color: var(--neutral-900);
+  line-height: 1.15;
+  color: #000000;
   margin: 0;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
 }
 
-.hero__greeting {
-  font-weight: 600;
+/* Body paragraphs */
+.hero__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.hero__tagline {
+.hero__body p {
   font-family: var(--font-sans-zh);
   font-weight: 400;
-  font-size: clamp(1rem, 1.5vw, 1.375rem);
-  color: var(--neutral-700);
+  font-size: clamp(0.875rem, 1.1vw, 1.125rem);
+  color: #000000;
   line-height: 1.75;
+  letter-spacing: 0.4px;
   margin: 0;
 }
 
-.hero__ctas {
-  display: flex;
-  gap: var(--spacing-s);
-  flex-wrap: wrap;
-  margin-top: var(--spacing-xs);
-}
 
-/* Right — person image */
+/* Right — emoji avatar */
 .hero__visual {
   position: absolute;
-  right: 0;
-  top: -24px;
-  width: 44%;
-  height: calc(100% + 24px);
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 30%, 400px);
   pointer-events: none;
+  z-index: 11;
 }
 
 .hero__avatar {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   display: block;
+  object-fit: contain;
+  object-position: bottom center;
 }
 
 /* ── Mobile ── */
@@ -145,9 +169,11 @@ defineProps<{
   .hero__visual {
     display: none;
   }
+}
 
-  .hero__headline {
-    white-space: normal;
-  }
+@keyframes heroFlow {
+  0%   { background-position: 0% 30%; }
+  50%  { background-position: 100% 70%; }
+  100% { background-position: 0% 30%; }
 }
 </style>
