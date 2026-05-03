@@ -66,15 +66,16 @@ default   →  <button :type>
 - Update `.app-btn--secondary:hover` and `:active` to solid fill
 
 ### `src/components/organisms/HeroSection.vue`
-- Add `size="lg"` to the `<AppButton>` call
+- Keep `<AppButton variant="secondary">` at default `size="md"` (no size prop needed)
 - Delete the entire `:deep(.app-btn--secondary)` override block (lines 96–114)
 
 ### `src/components/molecules/ProjectCard.vue`
 - Change `:to="project.liveUrl"` → `:href="project.liveUrl"` on the View Live AppButton
+- Change `size="sm"` → `size="md"`
 - Remove manually passed `target` and `rel` attrs (now handled by AppButton internally)
 
 ### `src/views/ProjectDetailView.vue`
-- Replace the raw `<a class="project-detail__live-btn">` with `<AppButton variant="secondary" size="md" :href="project.liveUrl" target="_blank">`
+- Replace the raw `<a class="project-detail__live-btn">` with `<AppButton variant="secondary" size="lg" :href="project.liveUrl">`
 - Delete the `.project-detail__live-btn` CSS class entirely
 
 ## Out of scope
