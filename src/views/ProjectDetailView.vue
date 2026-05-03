@@ -14,13 +14,13 @@
       <div class="container project-detail__hero-inner">
         <div class="project-detail__title-row">
           <h1 class="project-detail__title">{{ project.title }}</h1>
-          <a
+          <AppButton
             v-if="project.liveUrl"
+            variant="secondary"
+            size="lg"
             :href="project.liveUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-detail__live-btn"
             :aria-label="`查看 ${project.title} 真實專案`"
+            class="project-detail__live-btn"
           >
             View Live
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -28,7 +28,7 @@
               <path d="M10 14 21 3"/>
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
             </svg>
-          </a>
+          </AppButton>
         </div>
         <p class="project-detail__title-en">{{ project.titleEn }}</p>
         <p class="project-detail__summary">{{ project.summary }}</p>
@@ -322,28 +322,7 @@ function formatBody(text: string): string {
 }
 
 .project-detail__live-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 10px 28px;
-  border-radius: var(--radius-round);
-  border: 1.5px solid var(--lake-blue-500);
-  background: transparent;
-  color: var(--lake-blue-600);
-  font-family: var(--font-sans-zh);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
   margin-bottom: 6px;
-}
-
-.project-detail__live-btn:hover {
-  background: var(--lake-blue-600);
-  border-color: var(--lake-blue-600);
-  color: var(--neutral-0);
 }
 
 .project-detail__title-en {
