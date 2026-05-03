@@ -56,13 +56,13 @@ defineProps<{
   min-height: 480px;
   background: linear-gradient(
     135deg,
-    #ccd9ef 0%,
-    #eaf0f9 15%,
-    #ffffff 30%,
-    #faefef 50%,
-    #ffffff 68%,
-    #dce8f4 85%,
-    #ccd9ef 100%
+    var(--lake-blue-100) 0%,
+    var(--lake-blue-50)  15%,
+    var(--neutral-0)     30%,
+    var(--rose-200)      50%,
+    var(--neutral-0)     68%,
+    var(--lake-blue-50)  85%,
+    var(--lake-blue-100) 100%
   );
   background-size: 280% 280%;
   animation: heroFlow 12s ease-in-out infinite;
@@ -101,7 +101,7 @@ defineProps<{
   max-width: 62%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--spacing-xl);
 }
 
 .hero__cta {
@@ -115,7 +115,7 @@ defineProps<{
   font-style: normal;
   font-size: clamp(2.25rem, 4.5vw, 4rem);
   line-height: 1.15;
-  color: #000000;
+  color: var(--neutral-1000);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ defineProps<{
   font-family: var(--font-sans-zh);
   font-weight: 400;
   font-size: clamp(0.875rem, 1.1vw, 1.125rem);
-  color: #000000;
+  color: var(--neutral-1000);
   line-height: 1.75;
   letter-spacing: 0.4px;
   margin: 0;
