@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import AppButton from '@/components/atoms/AppButton.vue'
-import avatarImg from '@/assets/adbb7930de62ba6d651de79e802daceec5629fad.png'
+import avatarImg from '@/assets/home-avatar.png'
 
 defineProps<{
   data: {
