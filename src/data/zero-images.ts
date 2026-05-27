@@ -1,8 +1,8 @@
-import coverImage from '@/assets/zero-coverImage.jpg'
-import heroImage from '@/assets/zero-heroImage.jpg'
-import img1 from '@/assets/zero-1 .jpg'
-import img2 from '@/assets/zero-2.jpg'
-import img3 from '@/assets/zero-3.jpg'
+import coverImage from '@/assets/z-01-cover.jpg'
+import heroImage from '@/assets/z-01-hero.jpg'
+import img1 from '@/assets/z-01-01.jpg'
+import img2 from '@/assets/z-01-02.jpg'
+import img3 from '@/assets/z-01-03.jpg'
 
 export const zeroCoverImage = coverImage
 export const zeroHeroImage = heroImage
