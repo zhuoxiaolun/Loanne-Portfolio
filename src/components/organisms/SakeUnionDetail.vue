@@ -21,7 +21,7 @@
     <!-- sake-7 -->
     <div class="sake-image sake-image--full">
       <video autoplay loop muted playsinline>
-        <source :src="sakeImg7" type="video/quicktime" />
+        <source :src="sakeImg7" type="video/mp4" />
       </video>
     </div>
 
@@ -39,7 +39,7 @@
         :key="i"
         autoplay loop muted playsinline
       >
-        <source :src="src" type="video/quicktime" />
+        <source :src="src" type="video/mp4" />
       </video>
     </div>
 
