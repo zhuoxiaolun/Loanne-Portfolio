@@ -144,6 +144,13 @@ const highlightParagraphs = computed(() => {
   gap: var(--spacing-s);
 }
 
+.sake-image--row img,
+.sake-image--row video {
+  aspect-ratio: 912 / 1530;
+  object-fit: cover;
+  object-position: top;
+}
+
 /* Vertical: two images stacked */
 .sake-image--stack {
   display: flex;
