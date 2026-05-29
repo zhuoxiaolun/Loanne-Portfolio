@@ -18,6 +18,13 @@
       <p class="section-body">{{ project.detail.background }}</p>
     </section>
 
+    <!-- sake-7 -->
+    <div class="sake-image sake-image--full">
+      <video autoplay loop muted playsinline>
+        <source :src="sakeImg7" type="video/quicktime" />
+      </video>
+    </div>
+
     <!-- Strategy block -->
     <ContentBlock
       v-if="project.detail.contentBlocks[0]"
@@ -51,6 +58,11 @@
       <img :src="sakeImg4" alt="" />
     </div>
 
+    <!-- sake-8 -->
+    <div class="sake-image sake-image--full">
+      <img :src="sakeImg8" alt="" />
+    </div>
+
   </article>
 </template>
 
@@ -62,6 +74,8 @@ import {
   sakeVerticalPair,
   sakeImg4,
   sakeImg5,
+  sakeImg7,
+  sakeImg8,
 } from '@/data/sake-images'
 import type { Project } from '@/types'
 
@@ -105,7 +119,8 @@ const highlightParagraphs = computed(() => {
 }
 
 /* ─── Image layouts ──────────────────────────────────── */
-.sake-image img {
+.sake-image img,
+.sake-image video {
   width: 100%;
   height: auto;
   display: block;
