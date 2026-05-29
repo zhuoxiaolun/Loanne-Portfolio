@@ -34,7 +34,13 @@
 
     <!-- Horizontal pair: sake-2-1 + sake-2-2 -->
     <div class="sake-image sake-image--row">
-      <img v-for="(src, i) in sakeHorizontalPair" :key="i" :src="src" alt="" />
+      <video
+        v-for="(src, i) in sakeHorizontalPair"
+        :key="i"
+        autoplay loop muted playsinline
+      >
+        <source :src="src" type="video/quicktime" />
+      </video>
     </div>
 
     <!-- 執行亮點：第一段 -->
