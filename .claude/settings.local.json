@@ -63,7 +63,9 @@
       "Bash(PLAYWRIGHT_BROWSERS_PATH=/Users/loanne/Library/Caches/ms-playwright npx playwright@latest eval ' *)",
       "Bash(curl -s \"http://localhost:5175/\")",
       "Bash(wait)",
-      "Bash(pkill -f \"node /tmp/minto\")"
+      "Bash(pkill -f \"node /tmp/minto\")",
+      "Bash(curl -s http://localhost:5179)",
+      "Bash(curl -s http://localhost:5179/)"
     ]
   },
   "hooks": {

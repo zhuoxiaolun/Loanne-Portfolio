@@ -6,7 +6,7 @@
       <div class="container about-hero__inner">
         <div class="about-hero__content">
           <h1 class="about-hero__title">About</h1>
-          <p class="about-hero__bio">{{ about.hero.bio }}</p>
+          <p class="about-hero__bio" v-html="about.hero.bio"></p>
           <p class="about-hero__bio-extra">{{ about.hero.bioExtra }}</p>
         </div>
         <div class="about-hero__visual" aria-hidden="true">
@@ -31,12 +31,25 @@
           <div class="about-tools__card about-soft__card">
             <div class="about-soft__chips">
               <span
-                v-for="tag in about.softSkills"
-                :key="tag"
+                v-for="skill in about.softSkills"
+                :key="skill.label"
                 class="about-soft__chip"
-              >{{ tag }}</span>
+                :class="{ 'has-tooltip': skill.tooltip }"
+                @mouseenter="skill.tooltip ? showTooltip($event, skill.tooltip) : null"
+                @mousemove="skill.tooltip && tooltipVisible ? updateTooltipPos($event) : null"
+                @mouseleave="hideTooltip"
+              >{{ skill.label }}</span>
             </div>
           </div>
+
+          <!-- Floating tooltip -->
+          <Teleport to="body">
+            <div
+              class="skill-tooltip"
+              :class="{ 'is-visible': tooltipVisible }"
+              :style="{ left: tooltipX + 'px', top: tooltipY + 'px' }"
+            >{{ tooltipText }}</div>
+          </Teleport>
         </div>
       </section>
 
@@ -169,6 +182,26 @@ const marqueeGallery = [...gallery, ...gallery]
 
 const isPaused = ref(false)
 
+const tooltipVisible = ref(false)
+const tooltipX = ref(0)
+const tooltipY = ref(0)
+const tooltipText = ref('')
+
+function showTooltip(e: MouseEvent, text: string) {
+  tooltipText.value = text
+  tooltipVisible.value = true
+  updateTooltipPos(e)
+}
+
+function hideTooltip() {
+  tooltipVisible.value = false
+}
+
+function updateTooltipPos(e: MouseEvent) {
+  tooltipX.value = e.clientX + 24
+  tooltipY.value = e.clientY - 60
+}
+
 function pauseCarousel() { isPaused.value = true }
 function resumeCarousel() { isPaused.value = false }
 </script>
@@ -213,18 +246,18 @@ function resumeCarousel() { isPaused.value = false }
 .about-hero__bio {
   font-family: var(--font-sans-zh);
   font-weight: 400;
-  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+  font-size: clamp(0.875rem, 1vw, 1.1rem);
   line-height: 1.85;
-  color: var(--neutral-800);
+  color: var(--neutral-900);
   margin: 0;
 }
 
 .about-hero__bio-extra {
   font-family: var(--font-sans-zh);
-  font-weight: 300;
-  font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1vw, 1.1rem);
   line-height: 1.8;
-  color: var(--neutral-500);
+  color: var(--neutral-700);
   margin: 0;
 }
 
@@ -360,6 +393,11 @@ function resumeCarousel() { isPaused.value = false }
 .about-soft__chip:hover::before {
   transform: translateX(-3px);
 }
+
+.about-soft__chip.has-tooltip {
+  cursor: default;
+}
+
 
 /* ── AI Tools ─────────────────────────────────── */
 .about-ai__grid {
@@ -632,5 +670,31 @@ function resumeCarousel() { isPaused.value = false }
   .about-awards__item {
     gap: 2px;
   }
+}
+
+/* ── Skill hover tooltip ──────────────────────────── */
+.skill-tooltip {
+  position: fixed;
+  z-index: 200;
+  pointer-events: none;
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  border-left: 3px solid #F4ADBD;
+  border-radius: 16px;
+  padding: 14px 18px;
+  max-width: 210px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: #3B3B3B;
+  opacity: 0;
+  transform: translateY(8px) rotate(-15deg);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.skill-tooltip.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotate(-15deg);
 }
 </style>
