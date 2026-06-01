@@ -59,6 +59,8 @@
       <img :src="zeroImg3" alt="" />
     </div>
 
+    <p class="section-body">透過標準化的 Component 與交付規範，讓前端工程師能準確理解每個元件的邏輯與規格，實現高效的跨團隊實作協作</p>
+
     <!-- z-01-05 -->
     <div class="zero-image zero-image--full">
       <img :src="zeroImg5" alt="" />

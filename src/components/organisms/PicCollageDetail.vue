@@ -643,9 +643,9 @@ onUnmounted(() => window.removeEventListener('resize', syncMixedHeight))
 
 .video-label {
   font-family: var(--font-serif-en);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--neutral-500);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neutral-800);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }

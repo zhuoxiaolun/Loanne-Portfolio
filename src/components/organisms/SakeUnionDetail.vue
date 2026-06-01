@@ -64,6 +64,8 @@
       <img :src="sakeImg4" alt="" />
     </div>
 
+    <p class="section-body">透過標準化的 Component 與交付規範，讓前端工程師能準確理解每個元件的邏輯與規格，實現高效的跨團隊實作協作</p>
+
     <!-- sake-8 -->
     <div class="sake-image sake-image--full">
       <img :src="sakeImg8" alt="" />

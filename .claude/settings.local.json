@@ -65,7 +65,9 @@
       "Bash(wait)",
       "Bash(pkill -f \"node /tmp/minto\")",
       "Bash(curl -s http://localhost:5179)",
-      "Bash(curl -s http://localhost:5179/)"
+      "Bash(curl -s http://localhost:5179/)",
+      "WebFetch(domain:lucide.dev)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   },
   "hooks": {

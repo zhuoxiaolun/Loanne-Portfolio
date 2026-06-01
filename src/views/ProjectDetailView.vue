@@ -3,10 +3,10 @@
 
     <!-- Back link -->
     <div class="container project-detail__breadcrumb">
-      <RouterLink to="/projects" class="project-detail__back">
+      <button class="project-detail__back" @click="goBack">
         <span class="project-detail__back-arrow">←</span>
         Back
-      </RouterLink>
+      </button>
     </div>
 
     <!-- Hero -->
@@ -209,7 +209,7 @@
 
     <!-- Bottom nav -->
     <div class="container project-detail__bottom-nav">
-      <AppButton variant="secondary" to="/projects">← 返回作品集</AppButton>
+      <AppButton variant="secondary" @click="goBack">← 返回</AppButton>
       <div class="project-detail__adjacent">
         <AppButton v-if="prevProject" variant="ghost" :to="`/projects/${prevProject.id}`">
           ← {{ prevProject.title }}
@@ -225,13 +225,13 @@
   <!-- Not found -->
   <main v-else class="container" style="padding-top: 160px; padding-bottom: 80px;">
     <p class="section-body">找不到此專案。</p>
-    <AppButton variant="primary" to="/projects" style="margin-top: 24px;">返回作品集</AppButton>
+    <AppButton variant="primary" @click="goBack" style="margin-top: 24px;">返回</AppButton>
   </main>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import AppImage from '@/components/atoms/AppImage.vue'
 import AppButton from '@/components/atoms/AppButton.vue'
 import ContentBlock from '@/components/molecules/ContentBlock.vue'
@@ -253,7 +253,11 @@ import homeData from '@/data/home.json'
 import projectsData from '@/data/projects.json'
 import type { Project } from '@/types'
 
+// Capture the URL we navigated FROM (set by Vue Router's pushState before mount)
+const previousPath = (history.state?.back as string | undefined) ?? ''
+
 const route = useRoute()
+const router = useRouter()
 const allProjects = [
   ...homeData.featuredProjects.projects,
   ...projectsData.projects,
@@ -262,6 +266,16 @@ const allProjects = [
 const project = computed(() =>
   allProjects.find(p => p.id === route.params.id)
 )
+
+function goBack() {
+  // If we have a previous page in history, go back (restores exact scroll position).
+  // Direct URL access (no history) → go to home.
+  if (previousPath) {
+    router.go(-1)
+  } else {
+    router.push('/')
+  }
+}
 
 const currentIndex = computed(() =>
   allProjects.findIndex(p => p.id === route.params.id)
@@ -309,6 +323,10 @@ function formatBody(text: string): string {
   gap: var(--spacing-xs);
   color: var(--neutral-600);
   text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   font-family: var(--font-serif-en);
   font-style: italic;
   font-weight: 600;

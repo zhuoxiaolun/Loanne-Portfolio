@@ -1,5 +1,5 @@
 <template>
-  <article class="project-card" :class="[`project-card--${variant}`]">
+  <article :id="project.id" class="project-card" :class="[`project-card--${variant}`]">
     <RouterLink :to="`/projects/${project.id}`" class="project-card__image-wrap">
       <img
         :src="project.coverImage"

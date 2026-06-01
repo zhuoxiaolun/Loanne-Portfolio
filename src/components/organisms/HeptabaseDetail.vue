@@ -168,7 +168,12 @@
           <div class="hepta-output__header">
             <span class="output-num">1-1</span>
             <div>
-              <h3 class="output-title">AI 拆分知識卡片</h3>
+              <h3 class="output-title">
+                <a href="https://youtu.be/ApHS2uyMMRo?si=LwP3wBD7FjfP2bc5" target="_blank" rel="noopener" class="output-yt-link">
+                  AI 拆分知識卡片
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                </a>
+              </h3>
               <p class="output-subtitle">將大量知識變成小型且有意義的知識點</p>
             </div>
           </div>
@@ -207,7 +212,12 @@
           <div class="hepta-output__header">
             <span class="output-num">2</span>
             <div>
-              <h3 class="output-title">AI 串聯知識譜系</h3>
+              <h3 class="output-title">
+                <a href="https://youtu.be/aUJnRNMzbeA?si=7bdAqdiNVwv9Fg_D" target="_blank" rel="noopener" class="output-yt-link">
+                  AI 串聯知識譜系
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                </a>
+              </h3>
               <p class="output-subtitle">一次看見知識全貌，並清楚呈現功能入口</p>
             </div>
           </div>
@@ -220,7 +230,12 @@
           <div class="hepta-output__header">
             <span class="output-num">3</span>
             <div>
-              <h3 class="output-title">AI 分類知識卡片</h3>
+              <h3 class="output-title">
+                <a href="https://youtu.be/2mHqaJ0-B8k?si=fzsSLQ5hQaL5mFJm" target="_blank" rel="noopener" class="output-yt-link">
+                  AI 分類知識卡片
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                </a>
+              </h3>
               <p class="output-subtitle">透過更準確的視覺化，讓 AI 架構圖更易理解</p>
             </div>
           </div>
@@ -233,7 +248,12 @@
           <div class="hepta-output__header">
             <span class="output-num">4</span>
             <div>
-              <h3 class="output-title">AI 提供卡片論點</h3>
+              <h3 class="output-title">
+                <a href="https://youtu.be/kjyjzvP6wo8?si=OG0Aq72_EThB4PGJ" target="_blank" rel="noopener" class="output-yt-link">
+                  AI 提供卡片論點
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                </a>
+              </h3>
               <p class="output-subtitle">提供更通用的選項，突破知識盲點</p>
             </div>
           </div>
@@ -246,7 +266,12 @@
           <div class="hepta-output__header">
             <span class="output-num">5</span>
             <div>
-              <h3 class="output-title">AI 搜尋回顧</h3>
+              <h3 class="output-title">
+                <a href="https://youtu.be/7O4L5Aw4qvE?si=RLcGzrMxfRAjjjSN" target="_blank" rel="noopener" class="output-yt-link">
+                  AI 搜尋回顧
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                </a>
+              </h3>
               <p class="output-subtitle">精準搜尋、快速喚起知識回憶</p>
             </div>
           </div>
@@ -554,6 +579,19 @@ import {
   color: var(--neutral-900);
   margin: 0;
   line-height: 1.4;
+}
+
+.output-yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  color: var(--neutral-900);
+  vertical-align: -0.1em;
+  transition: color 0.15s ease;
+}
+
+.output-yt-link:hover {
+  color: var(--cherry-600);
 }
 
 .output-subtitle {
