@@ -246,7 +246,7 @@ function resumeCarousel() { isPaused.value = false }
 .about-body {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6xl);
+  gap: var(--spacing-5xl);
 }
 
 /* ── Section ──────────────────────────────────── */

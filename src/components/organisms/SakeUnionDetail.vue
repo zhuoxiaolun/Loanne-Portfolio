@@ -103,7 +103,7 @@ const highlightParagraphs = computed(() => {
 .article-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--spacing-l);
 }
 
 .section-label {

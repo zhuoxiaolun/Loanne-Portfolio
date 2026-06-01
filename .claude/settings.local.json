@@ -12,7 +12,79 @@
       "Bash(find:*)",
       "Bash(npm run:*)",
       "mcp__figma-console__figma_take_screenshot",
-      "mcp__figma-console__figma_get_status"
+      "mcp__figma-console__figma_get_status",
+      "mcp__figma-desktop__get_metadata",
+      "Bash(node *)",
+      "mcp__figma-desktop__get_screenshot",
+      "mcp__figma-desktop__get_design_context",
+      "Bash(python3 -m json.tool)",
+      "Bash(cp -R /Users/loanne/.claude/figma-ds-workflows/figma-audit-design-system /Users/loanne/.claude/skills/)",
+      "Bash(cp -R /Users/loanne/.claude/figma-ds-workflows/figma-extract-design-system /Users/loanne/.claude/skills/)",
+      "Read(//Users/loanne/.claude/skills/figma-audit-design-system/**)",
+      "Read(//Users/loanne/.claude/skills/figma-extract-design-system/**)",
+      "Skill(update-config)",
+      "Bash(chmod +x *)",
+      "Bash(/Users/loanne/ux-planning/frontend-project/.claude/hooks/design-check.sh)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git -C /Users/loanne/ux-planning/frontend-project add src/components/atoms/AppButton.vue)",
+      "Bash(git -C /Users/loanne/ux-planning/frontend-project commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "WebFetch(domain:loanna-portfolio-a045d5.webflow.io)",
+      "mcp__figma-console__figma_list_open_files",
+      "Bash(python3 *)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffprobe *)",
+      "Bash(ffmpeg -y -i /Users/loanne/ux-planning/frontend-project/src/assets/z-01-04.gif -vf scale=1920:-2,fps=30 -c:v libx264 -pix_fmt yuv420p -movflags +faststart -crf 23 /Users/loanne/ux-planning/frontend-project/src/assets/z-01-04.mp4)",
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(curl -s http://localhost:5177/projects/sake-union)",
+      "Bash(chromium-cli *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/sake-meta.png --window-size=1280,900 \"http://localhost:5177/projects/sake-union\")",
+      "Read(//tmp/**)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/sake-full.png --window-size=1280,2400 \"http://localhost:5177/projects/sake-union\")",
+      "Bash(ffmpeg -y -i s-02-01.mov -vf \"scale=912:-2,fps=30\" -c:v libx264 -crf 22 -preset slow -pix_fmt yuv420p -movflags +faststart -an s-02-01.mp4)",
+      "Bash(ffmpeg -y -i s-02-07.mov -vf \"scale=1920:-2,fps=30\" -c:v libx264 -crf 22 -preset slow -pix_fmt yuv420p -movflags +faststart -an s-02-07.mp4)",
+      "Bash(ffmpeg -y -i /Users/loanne/ux-planning/frontend-project/src/assets/s-02-01.mp4 -frames:v 1 -q:v 2 /tmp/frame-01.jpg)",
+      "Bash(ffmpeg -y -i /Users/loanne/ux-planning/frontend-project/src/assets/s-02-02.mp4 -frames:v 1 -q:v 2 /tmp/frame-02.jpg)",
+      "Bash(ffmpeg -y -i /Users/loanne/ux-planning/frontend-project/src/assets/s-02-01.mp4 -vf \"fps=1,scale=456:-2,tile=4x1\" -frames:v 1 /tmp/strip-01.jpg)",
+      "Bash(ffmpeg -y -i /Users/loanne/ux-planning/frontend-project/src/assets/s-02-02.mp4 -vf \"fps=1,scale=456:-2,tile=4x1\" -frames:v 1 /tmp/strip-02.jpg)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/sake-row.png --window-size=390,900 \"http://localhost:5177/projects/sake-union\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/tmp/sake-mobile-full.png --window-size=390,4000 \"http://localhost:5177/projects/sake-union\")",
+      "Bash(mv m-hero.jpg m-05-hero.jpg)",
+      "Bash(mv m-cover.jpg m-05-cover.jpg)",
+      "Bash(mv m-1.png m-05-01.png)",
+      "Bash(mv m-2.jpg m-05-02.jpg)",
+      "Bash(mv m-3.jpg m-05-03.jpg)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(pkill -f \"vite --port 5173\")",
+      "Bash(pkill -f \"vite\")",
+      "Bash(PLAYWRIGHT_BROWSERS_PATH=/Users/loanne/Library/Caches/ms-playwright npx playwright@latest eval ' *)",
+      "Bash(curl -s \"http://localhost:5175/\")",
+      "Bash(wait)",
+      "Bash(pkill -f \"node /tmp/minto\")"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/loanne/ux-planning/frontend-project/.claude/hooks/design-check.sh",
+            "timeout": 10,
+            "statusMessage": "Checking design system compliance..."
+          },
+          {
+            "type": "agent",
+            "prompt": "You are a design system auditor for a Vue 3 portfolio frontend project. You received a PostToolUse hook event: $ARGUMENTS\n\nExtract 'tool_input.file_path' from the JSON. Rules:\n- If file is NOT a .vue file → output nothing, stop immediately\n- If file path does NOT contain /src/components/ → output nothing, stop immediately\n- If the file does not exist on disk → output nothing, stop immediately\n\nOtherwise proceed:\n1. Read the component file at that path\n2. Read src/design-system/components.md for the full component API reference\n3. Read src/design-system/design-tokens.json for available tokens\n\nAudit on 4 dimensions and write a report in Traditional Chinese:\n\n**A. Token 合規性** — CSS 值應使用 var(--cherry-*, --neutral-*, --lakeBlue-*, --burgundy-*, --lapis-*, --spacing-*, --radius-*, --font-*) 而非 hardcode 數值。檢查 hardcode hex 色碼與 px spacing。\n\n**B. 元件複用** — 有 CTA/按鈕 → 應用 <AppButton>；有標籤 → 應用 <AppTag>；有圖片 → 應用 <AppImage>；有分隔線 → 應用 <AppDivider>。是否重複實作已有的 atom/molecule?\n\n**C. Atomic Design 層級** — atoms: 單一用途無業務邏輯；molecules: atoms 的功能組合；organisms: 含業務資料或複雜互動。此檔案放的層級正確嗎? Props/slots 設計是否與同層級元件一致?\n\n**D. 命名慣例** — Props: camelCase；Emits: kebab-case (update:modelValue 格式)；Scoped CSS class: kebab-case；元件名稱: PascalCase 且與檔名一致。\n\nFormat: ✅ 通過的項目，⚠️ 問題項目附行號與具體修正建議。總字數控制在 300 字內。",
+            "timeout": 60,
+            "statusMessage": "AI 元件一致性審查中..."
+          }
+        ]
+      }
     ]
   }
 }

@@ -1,4 +1,5 @@
 <template>
+  <div class="banner-article">
   <!-- Shopping 頻道 section -->
   <div class="banner-section">
     <p class="banner-section__label">專案概述</p>
@@ -23,7 +24,7 @@
     <p class="banner-section__label">專案概述</p>
     <h2 class="banner-section__title">風格學院</h2>
     <p class="banner-section__body">
-      「美麗佳人風格學院」是以生活美學與心靈成長為核心的學習平台，傳遞 "Think Smart, Look Amazing" 的品牌精神。平台定期集結各領域大師，開設涵蓋內在情緒、職人料理與日常藝術的深度課程。在參與設計的過程中，我透過視覺語彙轉化專業知識，為每期多元的主題打造專屬 Banner，協助現代人在探索專業技能與內在修為時，能從視覺出發，感受全方位的豐盈生活姿態。
+      「美麗佳人風格學院」是以生活美學與心靈成長為核心的學習平台，傳遞 "Think Smart, Look Amazing" 的品牌精神。平台定期集結各領域大師，開設涵蓋內在情緒、職人料理與日常藝術的深度課程。在參與設計的過程中，我為每期多元的主題打造專屬 Banner，協助現代人在探索內在修為時，能感受全方位的豐盈生活姿態。
     </p>
     <div class="banner-grid">
       <img
@@ -36,6 +37,7 @@
       />
     </div>
   </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -44,11 +46,16 @@ import { shoppingImages, styleAcademyImages } from '@/data/banner-images'
 
 <style scoped>
 /* ─── Content sections ───────────────────────────────── */
+.banner-article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5xl);
+}
+
 .banner-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
-  padding-bottom: var(--spacing-5xl);
+  gap: var(--spacing-l);
 }
 
 /* 與 ContentBlock / ProjectDetailView 相同的文字樣式 */
@@ -83,7 +90,7 @@ import { shoppingImages, styleAcademyImages } from '@/data/banner-images'
 .banner-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: var(--spacing-s);
   width: 100%;
 }
 

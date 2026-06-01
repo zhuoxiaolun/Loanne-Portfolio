@@ -46,6 +46,15 @@
       <div v-else-if="project.id === 'pinkrun'" class="project-detail__cover">
         <img :src="pinkHeroImage" :alt="project.title" class="project-detail__hero-img" />
       </div>
+      <div v-else-if="project.id === 'minto-app'" class="project-detail__cover">
+        <img :src="mintoHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
+      <div v-else-if="project.id === 'heptabase-ai'" class="project-detail__cover">
+        <img :src="heptabaseHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
+      <div v-else-if="project.id === 'piccollage'" class="project-detail__cover">
+        <img :src="picCollageHeroImage" :alt="project.title" class="project-detail__hero-img" />
+      </div>
       <div v-else class="project-detail__cover">
         <AppImage
           :src="project.coverImage"
@@ -77,6 +86,13 @@
           <span class="meta-pill">
             <span class="meta-pill__label">時程</span>
             <span class="meta-pill__value">{{ project.detail.metadata.duration }}</span>
+          </span>
+        </template>
+        <template v-if="project.detail.metadata.award">
+          <span class="meta-pill__divider" aria-hidden="true" />
+          <span class="meta-pill">
+            <span class="meta-pill__label">名次</span>
+            <span class="meta-pill__value">{{ project.detail.metadata.award }}</span>
           </span>
         </template>
       </div>
@@ -115,6 +131,21 @@
     <!-- Pinkrun: specialized content with image galleries -->
     <div v-else-if="project.id === 'pinkrun'" class="container project-detail__content">
       <PinkrunDetail :project="project" />
+    </div>
+
+    <!-- Minto: specialized content with images and videos -->
+    <div v-else-if="project.id === 'minto-app'" class="container project-detail__content">
+      <MintoDetail :project="project" />
+    </div>
+
+    <!-- Heptabase: specialized content with image galleries -->
+    <div v-else-if="project.id === 'heptabase-ai'" class="container project-detail__content">
+      <HeptabaseDetail />
+    </div>
+
+    <!-- PicCollage: specialized content with image galleries and videos -->
+    <div v-else-if="project.id === 'piccollage'" class="container project-detail__content">
+      <PicCollageDetail />
     </div>
 
     <!-- Single-column article (all other projects) -->
@@ -208,9 +239,15 @@ import BannerDesignDetail from '@/components/organisms/BannerDesignDetail.vue'
 import SakeUnionDetail from '@/components/organisms/SakeUnionDetail.vue'
 import ZeroToOneDetail from '@/components/organisms/ZeroToOneDetail.vue'
 import PinkrunDetail from '@/components/organisms/PinkrunDetail.vue'
+import MintoDetail from '@/components/organisms/MintoDetail.vue'
+import HeptabaseDetail from '@/components/organisms/HeptabaseDetail.vue'
+import PicCollageDetail from '@/components/organisms/PicCollageDetail.vue'
 import { sakeHeroImage, sakeCoverImage } from '@/data/sake-images'
 import { zeroHeroImage } from '@/data/zero-images'
 import { pinkHeroImage } from '@/data/pink-images'
+import { mintoHeroImage } from '@/data/minto-images'
+import { heptabaseHeroImage } from '@/data/heptabase-images'
+import { picCollageHeroImage } from '@/data/piccollage-images'
 import bannerMainImg from '@/assets/b-04-hero.png'
 import homeData from '@/data/home.json'
 import projectsData from '@/data/projects.json'
@@ -453,7 +490,7 @@ function formatBody(text: string): string {
 .article-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--spacing-l);
 }
 
 /* ─── Section typography ─────────────────────────────── */

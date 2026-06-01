@@ -4,6 +4,7 @@ export interface ProjectMeta {
   role: string
   client: string
   duration: string
+  award?: string
 }
 
 export type ContentBlockType = 'text' | 'image' | 'gallery' | 'strategy' | 'table'

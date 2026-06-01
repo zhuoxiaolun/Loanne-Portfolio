@@ -81,7 +81,7 @@ const marqueeImages = computed(() => [...pinkCarouselImages, ...pinkCarouselImag
 .article-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--spacing-l);
 }
 
 /* ─── Section typography ─────────────────────────────── */
@@ -142,7 +142,7 @@ const marqueeImages = computed(() => [...pinkCarouselImages, ...pinkCarouselImag
 /* ─── Marquee (full-bleed) ───────────────────────────── */
 .pink-marquee-section {
   --slide-h: clamp(200px, 26vw, 340px);
-  --slide-gap: 12px;
+  --slide-gap: var(--spacing-s);
   --marquee-duration: 32s;
 
   margin-top: var(--spacing-5xl);

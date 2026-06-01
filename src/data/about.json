@@ -11,7 +11,7 @@
     {
       "key": "efficiency",
       "title": "AI Efficiency",
-      "chips": ["Claude code", "skill"],
+      "chips": ["Claude code", "skill", "MCP"],
       "desc": "使用 Claude Code 建立專屬的工作規則與自動化流程，將重複性任務交給 AI 處理，讓我能把時間專注在真正需要創意判斷的地方。"
     },
     {
@@ -31,7 +31,7 @@
     "items": [
       {
         "displayTitle": "UI視覺設計師 @ 國際亞洲出版股份有限公司(美麗佳人)",
-        "period": "2025/2 - Present",
+        "period": "2025/2 - 2025/5",
         "logoKey": "media"
       },
       {

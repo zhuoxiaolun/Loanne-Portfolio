@@ -21,6 +21,7 @@ const featuredProjects = homeData.featuredProjects.projects as Project[]
 
 <style scoped>
 .section {
+  padding-top: 0;
   padding-bottom: var(--spacing-6xl);
 }
 </style>
