@@ -16,7 +16,7 @@
         >
           {{ link.label }}
         </RouterLink>
-        <a href="/resume.pdf" class="navbar__link" target="_blank">Resume</a>
+        <RouterLink to="/resume" class="navbar__link" @click="downloadResume">Resume</RouterLink>
       </nav>
 
       <!-- Hamburger button -->
@@ -48,7 +48,7 @@
         >
           {{ link.label }}
         </RouterLink>
-        <a href="/resume.pdf" class="navbar__drawer-link" target="_blank" @click="closeMenu">Resume</a>
+        <RouterLink to="/resume" class="navbar__drawer-link" @click="downloadResume(); closeMenu()">Resume</RouterLink>
       </nav>
     </div>
   </Transition>
@@ -84,6 +84,13 @@ function toggleMenu() {
 
 function closeMenu() {
   menuOpen.value = false
+}
+
+function downloadResume() {
+  const a = document.createElement('a')
+  a.href = '/Loanne-Resume.pdf'
+  a.download = 'Loanne-Resume.pdf'
+  a.click()
 }
 
 function onScroll() {

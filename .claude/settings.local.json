@@ -67,7 +67,10 @@
       "Bash(curl -s http://localhost:5179)",
       "Bash(curl -s http://localhost:5179/)",
       "WebFetch(domain:lucide.dev)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(open *)",
+      "Bash(/Applications/Google Chrome.app/Contents/MacOS/Google Chrome *)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --print-to-pdf=/Users/loanne/ux-planning/frontend-project/Loanne-Resume.pdf --no-pdf-header-footer --print-background --virtual-time-budget=3000 file:///Users/loanne/ux-planning/frontend-project/resume.html)"
     ]
   },
   "hooks": {
