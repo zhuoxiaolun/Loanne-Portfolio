@@ -18,7 +18,7 @@
         </div>
 
         <div class="hero__visual" aria-hidden="true">
-          <img :src="avatarImg" alt="" class="hero__avatar" />
+          <img :src="avatarGif" alt="" class="hero__avatar" />
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import AppButton from '@/components/atoms/AppButton.vue'
-import avatarImg from '@/assets/home-avatar.png'
+import avatarGif from '@/assets/home-photo-nobg.gif'
 
 defineProps<{
   data: {
@@ -162,16 +162,22 @@ defineProps<{
 @media (max-width: 768px) {
   .hero__card {
     min-height: unset;
-    padding-bottom: var(--spacing-4xl);
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 0;
   }
 
   .hero__content {
     max-width: 100%;
-    padding: var(--spacing-3xl) var(--spacing-l);
+    padding: var(--spacing-3xl) var(--spacing-l) var(--spacing-l);
   }
 
   .hero__visual {
-    display: none;
+    position: static;
+    transform: none;
+    width: clamp(160px, 55%, 260px);
+    align-self: center;
+    padding-top: var(--spacing-3xl);
   }
 }
 

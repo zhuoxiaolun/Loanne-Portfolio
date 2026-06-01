@@ -70,7 +70,11 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(open *)",
       "Bash(/Applications/Google Chrome.app/Contents/MacOS/Google Chrome *)",
-      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --print-to-pdf=/Users/loanne/ux-planning/frontend-project/Loanne-Resume.pdf --no-pdf-header-footer --print-background --virtual-time-budget=3000 file:///Users/loanne/ux-planning/frontend-project/resume.html)"
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --print-to-pdf=/Users/loanne/ux-planning/frontend-project/Loanne-Resume.pdf --no-pdf-header-footer --print-background --virtual-time-budget=3000 file:///Users/loanne/ux-planning/frontend-project/resume.html)",
+      "Bash(identify /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif)",
+      "Bash(ffmpeg -i /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif -vframes 1 /tmp/home-photo-preview.jpg -y)",
+      "Bash(convert /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif -coalesce -alpha set -fuzz 3% -fill none -draw 'color 0,0 floodfill' -draw 'color 2079,0 floodfill' -draw 'color 0,2079 floodfill' -draw 'color 2079,2079 floodfill' -layers optimize /tmp/home-photo-nobg.gif)",
+      "Bash(ffmpeg -i /tmp/home-photo-nobg.gif -vframes 1 /tmp/preview-nobg.png -y)"
     ]
   },
   "hooks": {
