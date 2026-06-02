@@ -74,7 +74,16 @@
       "Bash(identify /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif)",
       "Bash(ffmpeg -i /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif -vframes 1 /tmp/home-photo-preview.jpg -y)",
       "Bash(convert /Users/loanne/ux-planning/frontend-project/src/assets/home-photo.gif -coalesce -alpha set -fuzz 3% -fill none -draw 'color 0,0 floodfill' -draw 'color 2079,0 floodfill' -draw 'color 0,2079 floodfill' -draw 'color 2079,2079 floodfill' -layers optimize /tmp/home-photo-nobg.gif)",
-      "Bash(ffmpeg -i /tmp/home-photo-nobg.gif -vframes 1 /tmp/preview-nobg.png -y)"
+      "Bash(ffmpeg -i /tmp/home-photo-nobg.gif -vframes 1 /tmp/preview-nobg.png -y)",
+      "WebFetch(domain:www.cake.me)",
+      "Bash(claude mcp *)",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\",\"params\":{}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"test\",\"version\":\"1.0\"}}}')",
+      "Bash(curl -v -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"claude\",\"version\":\"1.0\"}}}')",
+      "Bash(curl -s -D /tmp/figma_headers.txt -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"claude\",\"version\":\"1.0\"}}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H 'mcp-session-id: 85585cd7-d40d-4e93-91f4-bb7df8f8f5e8' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}')",
+      "mcp__figma-console__figma_execute",
+      "WebFetch(domain:gemini.google.com)"
     ]
   },
   "hooks": {
