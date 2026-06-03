@@ -83,7 +83,8 @@
       "Bash(curl -s -D /tmp/figma_headers.txt -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"claude\",\"version\":\"1.0\"}}}')",
       "Bash(curl -s -X POST http://127.0.0.1:3845/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H 'mcp-session-id: 85585cd7-d40d-4e93-91f4-bb7df8f8f5e8' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}')",
       "mcp__figma-console__figma_execute",
-      "WebFetch(domain:gemini.google.com)"
+      "WebFetch(domain:gemini.google.com)",
+      "mcp__figma-local__get_metadata"
     ]
   },
   "hooks": {
