@@ -121,7 +121,7 @@
             v-for="(photo, i) in marqueeGallery"
             :key="i"
             class="about-gallery__item"
-            aria-hidden="i >= gallery.length"
+            :aria-hidden="i >= gallery.length"
           >
             <img :src="photo.src" :alt="i < gallery.length ? `Photo ${i + 1}` : ''" class="about-gallery__photo" draggable="false" />
           </div>

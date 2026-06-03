@@ -90,7 +90,8 @@ import type { Project } from '@/types'
 const props = defineProps<{ project: Project }>()
 
 const highlightParagraphs = computed(() => {
-  const body = props.project.detail.contentBlocks[1]?.body ?? ''
+  const block = props.project.detail.contentBlocks[1]
+  const body = block?.type === 'text' ? block.body : ''
   return body.split('\n\n').map(p => p.trim()).filter(Boolean)
 })
 </script>
