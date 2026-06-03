@@ -1,30 +1,32 @@
+import { asset } from '@/config/assets'
+
 // Shopping 頻道 banner images (1920×1080)
-import shop01 from '@/assets/b-04-shop-01.png'
-import shop02 from '@/assets/b-04-shop-02.png'
-import shop03 from '@/assets/b-04-shop-03.png'
-import shop04 from '@/assets/b-04-shop-04.png'
-import shop05 from '@/assets/b-04-shop-05.png'
-import shop06 from '@/assets/b-04-shop-06.png'
-import shop07 from '@/assets/b-04-shop-07.png'
-import shop09 from '@/assets/b-04-shop-08.png'
-import shop10 from '@/assets/b-04-shop-09.png'
-import shop11 from '@/assets/b-04-shop-10.png'
-import shopNew1 from '@/assets/b-04-shop-11.png'
-import shopNew2 from '@/assets/b-04-shop-12.png'
+const shop01 = asset('b-04-shop-01.png')
+const shop02 = asset('b-04-shop-02.png')
+const shop03 = asset('b-04-shop-03.png')
+const shop04 = asset('b-04-shop-04.png')
+const shop05 = asset('b-04-shop-05.png')
+const shop06 = asset('b-04-shop-06.png')
+const shop07 = asset('b-04-shop-07.png')
+const shop09 = asset('b-04-shop-08.png')
+const shop10 = asset('b-04-shop-09.png')
+const shop11 = asset('b-04-shop-10.png')
+const shopNew1 = asset('b-04-shop-11.png')
+const shopNew2 = asset('b-04-shop-12.png')
 
 // 風格學院 banner images (1200×675)
-import style01 from '@/assets/b-04-style-01.png'
-import style02 from '@/assets/b-04-style-02.png'
-import style03 from '@/assets/b-04-style-03.png'
-import style04 from '@/assets/b-04-style-04.png'
-import style05 from '@/assets/b-04-style-05.png'
-import style06 from '@/assets/b-04-style-06.png'
-import style07 from '@/assets/b-04-style-07.png'
-import style08 from '@/assets/b-04-style-08.png'
-import style09 from '@/assets/b-04-style-09.png'
-import style10 from '@/assets/b-04-style-10.png'
-import style11 from '@/assets/b-04-style-11.png'
-import style12 from '@/assets/b-04-style-12.png'
+const style01 = asset('b-04-style-01.png')
+const style02 = asset('b-04-style-02.png')
+const style03 = asset('b-04-style-03.png')
+const style04 = asset('b-04-style-04.png')
+const style05 = asset('b-04-style-05.png')
+const style06 = asset('b-04-style-06.png')
+const style07 = asset('b-04-style-07.png')
+const style08 = asset('b-04-style-08.png')
+const style09 = asset('b-04-style-09.png')
+const style10 = asset('b-04-style-10.png')
+const style11 = asset('b-04-style-11.png')
+const style12 = asset('b-04-style-12.png')
 
 export const shoppingImages = [
   shop01,   // 7e580cb1e472...

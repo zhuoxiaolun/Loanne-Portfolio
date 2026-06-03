@@ -1,23 +1,25 @@
-import heroImage from '@/assets/c-07-hero.jpg'
-import coverImage from '@/assets/c-07-cover.jpg'
-import img01 from '@/assets/c-07-01.jpg'
-import img02 from '@/assets/c-07-02.jpg'
-import img03 from '@/assets/c-07-03.jpg'
-import img04 from '@/assets/c-07-04.jpg'
-import img05 from '@/assets/c-07-05.jpg'
-import img06 from '@/assets/c-07-06.jpg'
-import img08 from '@/assets/c-07-08.jpg'
-import img09 from '@/assets/c-07-09.jpg'
-import img10 from '@/assets/c-07-10.jpg'
-import img11 from '@/assets/c-07-11.jpg'
-import img12 from '@/assets/c-07-12.jpg'
-import vid1 from '@/assets/c-07-1.mp4'
-import vid2 from '@/assets/c-07-2.mp4'
-import vid03 from '@/assets/c-07-03.mp4'
-import vid04 from '@/assets/c-07-04.mp4'
-import vid05 from '@/assets/c-07-05.mp4'
-import vid06 from '@/assets/c-07-06.mp4'
-import vid07 from '@/assets/c-07-07.mp4'
+import { asset } from '@/config/assets'
+
+const heroImage = asset('c-07-hero.jpg')
+const coverImage = asset('c-07-cover.jpg')
+const img01 = asset('c-07-01.jpg')
+const img02 = asset('c-07-02.jpg')
+const img03 = asset('c-07-03.jpg')
+const img04 = asset('c-07-04.jpg')
+const img05 = asset('c-07-05.jpg')
+const img06 = asset('c-07-06.jpg')
+const img08 = asset('c-07-08.jpg')
+const img09 = asset('c-07-09.jpg')
+const img10 = asset('c-07-10.jpg')
+const img11 = asset('c-07-11.jpg')
+const img12 = asset('c-07-12.jpg')
+const vid1 = asset('c-07-1.mp4')
+const vid2 = asset('c-07-2.mp4')
+const vid03 = asset('c-07-03.mp4')
+const vid04 = asset('c-07-04.mp4')
+const vid05 = asset('c-07-05.mp4')
+const vid06 = asset('c-07-06.mp4')
+const vid07 = asset('c-07-07.mp4')
 
 export const picCollageHeroImage = heroImage
 export const picCollageCoverImage = coverImage

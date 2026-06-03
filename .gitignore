@@ -163,3 +163,13 @@ yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/vuejs,vue,node
 
+# Static assets are hosted on Cloudflare R2 (bucket: loanne-blog), not in the repo.
+# See src/config/assets.ts
+src/assets/
+
+# Wrangler local state (Miniflare simulated R2/KV/etc.)
+.wrangler/
+
+
+# macOS
+.DS_Store

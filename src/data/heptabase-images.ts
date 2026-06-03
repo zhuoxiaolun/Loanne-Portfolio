@@ -1,23 +1,25 @@
-import heroImage from '@/assets/h-06-hero.jpg'
-import img01 from '@/assets/h-06-01.jpg'
-import img02 from '@/assets/h-06-02.jpg'
-import img03 from '@/assets/h-06-03.jpg'
-import img04 from '@/assets/h-06-04.jpg'
-import img05 from '@/assets/h-06-05.jpg'
-import img06 from '@/assets/h-06-06.jpg'
-import img07 from '@/assets/h-06-07.jpg'
-import img08 from '@/assets/h-06-08.jpg'
-import img09 from '@/assets/h-06-09.jpg'
-import img10 from '@/assets/h-06-10.jpg'
-import img11 from '@/assets/h-06-11.jpg'
-import img12 from '@/assets/h-06-12.jpg'
-import img13 from '@/assets/h-06-13.jpg'
-import img14 from '@/assets/h-06-14.jpg'
-import img15 from '@/assets/h-06-15.jpg'
-import img16 from '@/assets/h-06-16.jpg'
-import img17 from '@/assets/h-06-17.jpg'
-import img17alt from '@/assets/h-06-17-1.jpg'
-import img18 from '@/assets/h-06-18.jpg'
+import { asset } from '@/config/assets'
+
+const heroImage = asset('h-06-hero.jpg')
+const img01 = asset('h-06-01.jpg')
+const img02 = asset('h-06-02.jpg')
+const img03 = asset('h-06-03.jpg')
+const img04 = asset('h-06-04.jpg')
+const img05 = asset('h-06-05.jpg')
+const img06 = asset('h-06-06.jpg')
+const img07 = asset('h-06-07.jpg')
+const img08 = asset('h-06-08.jpg')
+const img09 = asset('h-06-09.jpg')
+const img10 = asset('h-06-10.jpg')
+const img11 = asset('h-06-11.jpg')
+const img12 = asset('h-06-12.jpg')
+const img13 = asset('h-06-13.jpg')
+const img14 = asset('h-06-14.jpg')
+const img15 = asset('h-06-15.jpg')
+const img16 = asset('h-06-16.jpg')
+const img17 = asset('h-06-17.jpg')
+const img17alt = asset('h-06-17-1.jpg')
+const img18 = asset('h-06-18.jpg')
 
 export const heptabaseHeroImage = heroImage
 export const heptabaseImg01 = img01

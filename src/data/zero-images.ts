@@ -1,10 +1,12 @@
-import coverImage from '@/assets/z-01-cover.jpg'
-import heroImage from '@/assets/z-01-hero.jpg'
-import img1 from '@/assets/z-01-01.jpg'
-import img2 from '@/assets/z-01-02.jpg'
-import img3 from '@/assets/z-01-03.jpg'
-import img4 from '@/assets/z-01-04.mp4'
-import img5 from '@/assets/z-01-05.jpg'
+import { asset } from '@/config/assets'
+
+const coverImage = asset('z-01-cover.jpg')
+const heroImage = asset('z-01-hero.jpg')
+const img1 = asset('z-01-01.jpg')
+const img2 = asset('z-01-02.jpg')
+const img3 = asset('z-01-03.jpg')
+const img4 = asset('z-01-04.mp4')
+const img5 = asset('z-01-05.jpg')
 
 export const zeroCoverImage = coverImage
 export const zeroHeroImage = heroImage

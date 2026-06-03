@@ -1,13 +1,15 @@
-import heroImage from '@/assets/m-05-hero.jpg'
-import img1 from '@/assets/m-05-01.jpg'
-import img2 from '@/assets/m-05-02.jpg'
-import img3 from '@/assets/m-05-03.jpg'
-import img4 from '@/assets/m-05-04.jpg'
-import img5 from '@/assets/m-05-05.jpg'
-import img6 from '@/assets/m-05-06.jpg'
-import video1 from '@/assets/m-05-01.mp4'
-import video2 from '@/assets/m-05-02.mp4'
-import video3 from '@/assets/m-05-03.mp4'
+import { asset } from '@/config/assets'
+
+const heroImage = asset('m-05-hero.jpg')
+const img1 = asset('m-05-01.jpg')
+const img2 = asset('m-05-02.jpg')
+const img3 = asset('m-05-03.jpg')
+const img4 = asset('m-05-04.jpg')
+const img5 = asset('m-05-05.jpg')
+const img6 = asset('m-05-06.jpg')
+const video1 = asset('m-05-01.mp4')
+const video2 = asset('m-05-02.mp4')
+const video3 = asset('m-05-03.mp4')
 
 export const mintoHeroImage = heroImage
 export const mintoImg1 = img1

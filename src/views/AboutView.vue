@@ -136,21 +136,23 @@
 import { ref } from 'vue'
 import aboutData from '@/data/about.json'
 
-import heroCollageImg   from '@/assets/about-hero.png'
-import hardSkillIconsImg from '@/assets/about-skills.png'
-import aiEfficiencyImg  from '@/assets/about-ai-efficiency.png'
-import aiIdeationImg    from '@/assets/about-ai-ideation.png'
-import aiResearchImg    from '@/assets/about-ai-research.png'
-import expLogoMarieClaire from '@/assets/about-exp-01.png'
-import expLogoIris        from '@/assets/about-exp-02.png'
-import expLogoMounts      from '@/assets/about-exp-03.png'
-import expLogoYuntech     from '@/assets/about-exp-04.png'
+import { asset } from '@/config/assets'
 
-import galleryImg1 from '@/assets/about-01.png'
-import galleryImg2 from '@/assets/about-02.png'
-import galleryImg3 from '@/assets/about-03.png'
-import galleryImg4 from '@/assets/about-04.png'
-import galleryImg5 from '@/assets/about-05.png'
+const heroCollageImg    = asset('about-hero.png')
+const hardSkillIconsImg = asset('about-skills.png')
+const aiEfficiencyImg   = asset('about-ai-efficiency.png')
+const aiIdeationImg     = asset('about-ai-ideation.png')
+const aiResearchImg     = asset('about-ai-research.png')
+const expLogoMarieClaire = asset('about-exp-01.png')
+const expLogoIris        = asset('about-exp-02.png')
+const expLogoMounts      = asset('about-exp-03.png')
+const expLogoYuntech     = asset('about-exp-04.png')
+
+const galleryImg1 = asset('about-01.png')
+const galleryImg2 = asset('about-02.png')
+const galleryImg3 = asset('about-03.png')
+const galleryImg4 = asset('about-04.png')
+const galleryImg5 = asset('about-05.png')
 
 const about = aboutData
 
