@@ -173,3 +173,7 @@ src/assets/
 
 # macOS
 .DS_Store
+
+
+#idea
+.idea*
