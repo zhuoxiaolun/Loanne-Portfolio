@@ -39,6 +39,14 @@
           :block="project.detail.contentBlocks[0]"
         />
 
+        <!-- 設計系統：移至決策 1 文案下方 -->
+        <section class="article-section">
+          <p class="section-label">設計系統</p>
+          <div class="minto-image minto-image--full">
+            <img :src="mintoImg6" alt="設計系統" />
+          </div>
+        </section>
+
         <!-- 決策 2 + Token 架構圖 -->
         <div class="minto-decision">
           <ContentBlock
@@ -113,14 +121,6 @@
 
       </div>
     </div>
-
-    <!-- 設計系統：label + image 在同一個 section -->
-    <section class="article-section">
-      <p class="section-label">設計系統</p>
-      <div class="minto-image minto-image--full">
-        <img :src="mintoImg6" alt="設計系統" />
-      </div>
-    </section>
 
     <!-- 團隊影響力 -->
     <ContentBlock
