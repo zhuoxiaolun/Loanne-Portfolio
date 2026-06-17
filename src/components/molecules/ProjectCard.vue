@@ -11,6 +11,14 @@
     </RouterLink>
 
     <div class="project-card__body">
+      <div v-if="disciplineTags.length" class="project-card__chips">
+        <AppTag
+          v-for="tag in disciplineTags"
+          :key="tag.label"
+          :color="tag.color"
+        >{{ tag.label }}</AppTag>
+      </div>
+
       <div class="project-card__title-row">
         <RouterLink :to="`/projects/${project.id}`" class="project-card__title-link">
           <h3 class="project-card__title">{{ project.title }}</h3>
@@ -37,15 +45,32 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import AppButton from '@/components/atoms/AppButton.vue'
+import AppTag from '@/components/atoms/AppTag.vue'
 import type { Project } from '@/types'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   project: Project
   variant?: 'banner' | 'grid'
 }>(), {
   variant: 'banner',
 })
+
+const DISCIPLINE_COLOR: Record<string, 'cherry' | 'lake' | 'lapis' | 'burgundy'> = {
+  'UI Design':     'cherry',
+  'UX Design':     'lake',
+  'UX Research':   'lake',
+  'Design System': 'lapis',
+  'Web Design':    'burgundy',
+  'Visual Design': 'burgundy',
+}
+
+const disciplineTags = computed(() =>
+  props.project.tags
+    .filter(t => t in DISCIPLINE_COLOR)
+    .map(t => ({ label: t, color: DISCIPLINE_COLOR[t] }))
+)
 
 function onImgError(e: Event) {
   const img = e.target as HTMLImageElement
@@ -58,6 +83,13 @@ function onImgError(e: Event) {
 .project-card {
   display: flex;
   flex-direction: column;
+}
+
+/* ─── Discipline chips ──────────────────────────────── */
+.project-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 /* ─── Title row ─────────────────────────────────────── */
