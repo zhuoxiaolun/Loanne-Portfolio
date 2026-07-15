@@ -91,6 +91,9 @@
             <div class="about-exp__body">
               <p class="about-exp__role">{{ item.displayTitle }}</p>
               <p class="about-exp__period">{{ item.period }}</p>
+              <ul v-if="item.bullets" class="about-exp__bullets">
+                <li v-for="(bullet, bi) in item.bullets" :key="bi" class="about-exp__bullet" v-html="bullet"></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -551,6 +554,31 @@ function resumeCarousel() { isPaused.value = false }
   color: var(--neutral-400);
   margin: 0;
   margin-top: var(--spacing-xxs);
+}
+
+.about-exp__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+  margin-top: var(--spacing-s);
+  padding: var(--spacing-m) var(--spacing-l);
+  padding-left: calc(var(--spacing-l) + 1.1em);
+  background: var(--neutral-50);
+  border-radius: var(--radius-m);
+}
+
+.about-exp__bullet {
+  font-family: var(--font-sans-zh);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--neutral-700);
+}
+
+.about-exp__bullet :deep(strong) {
+  font-weight: 700;
+  color: var(--burgundy-500);
 }
 
 /* ── Awards ───────────────────────────────────── */

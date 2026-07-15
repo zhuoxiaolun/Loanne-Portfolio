@@ -39,7 +39,12 @@
       {
         "displayTitle": "UI視覺設計師 @ 國際亞洲出版股份有限公司(美麗佳人)",
         "period": "2025/2 - 2026/5",
-        "logoKey": "media"
+        "logoKey": "media",
+        "bullets": [
+          "主導 RWD 網頁介面設計，與工程團隊緊密協作把關視覺還原度，<strong>跨部門溝通往返次數明顯減少</strong>",
+          "獨立執行從視覺發想、介面設計到最終輸出的完整設計流程，在保有高質感畫面呈現的同時，<strong>確保每項設計決策皆考量前端實作可行性</strong>",
+          "自發性建立 <strong>Design System</strong> 與 <strong>Design Tokens</strong> 架構規範，制定視覺規範、元件設計與交付文件標準，獲得前端工程師正向評價"
+        ]
       },
       {
         "displayTitle": "智慧辨識產業服務研究中心－設計工讀生",
